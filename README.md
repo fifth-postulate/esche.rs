@@ -12,6 +12,11 @@ Be creating good [abstractions][abstraction] and relying on [function compositio
 
 ![Square Limit, Escher 1964](https://uploads3.wikiart.org/images/m-c-escher/square-limit.jpg!Large.jpg)
 
+## Project Layout
+In the root directory of this project you will find:
+
+1. `book`. An mdbook power manual that will guide you through the workshop.  
+
 [escher-in-elm]: https://github.com/einarwh/escher-workshop
 [host]: https://einarwh.wordpress.com/
 [funcgeo]: https://eprints.soton.ac.uk/257577/1/funcgeo2.pdf
