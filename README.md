@@ -17,6 +17,7 @@ In the root directory of this project you will find:
 
 1. `book`. An mdbook power manual that will guide you through the workshop.
 2. `starter`. Starter code for the workshop.
+3. `eschers`. The source code for the project.
 
 [escher-in-elm]: https://github.com/einarwh/escher-workshop
 [host]: https://einarwh.wordpress.com/
