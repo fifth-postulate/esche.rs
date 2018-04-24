@@ -1,0 +1,11 @@
+[book]
+title = "Esche.rs"
+author = "Daan van Berkel"
+description = "A book accompanying a workshop to recreate Escher's square limit."
+src = "src"
+
+[build]
+build-dir = "../docs/"
+
+[output.html]
+mathjax-support = true

@@ -15,7 +15,7 @@ Be creating good [abstractions][abstraction] and relying on [function compositio
 ## Project Layout
 In the root directory of this project you will find:
 
-1. `book`. An mdbook power manual that will guide you through the workshop.
+1. `manuscript`. An mdbook powered manual that will guide you through the workshop.
 2. `starter`. Starter code for the workshop.
 3. `eschers`. The source code for the project.
 
