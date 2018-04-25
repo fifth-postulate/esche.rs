@@ -64,8 +64,8 @@
 use std::ops::{Add, Neg, Mul};
 
 /// Representation of two dimensional vector
-#[derive(Debug, PartialEq, Eq)]
-pub struct Vector<T> {
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub struct Vector<T> where T: Clone + Copy {
     x: T,
     y: T,
 }
