@@ -5,3 +5,4 @@ pub mod canvas;
 pub mod shape;
 pub mod style;
 pub mod picture;
+pub mod fitting;
