@@ -20,3 +20,10 @@ pub struct ControlPoint {
     /// Last control point
     pub end_point: Vector<f64>,
 }
+
+impl ControlPoint {
+    /// Create a `ControlPoint` from the given `Vector`s.
+    pub fn new(mid_point1: Vector<f64>, mid_point2: Vector<f64>, end_point: Vector<f64>) -> ControlPoint {
+        ControlPoint { mid_point1, mid_point2, end_point }
+    }
+}
