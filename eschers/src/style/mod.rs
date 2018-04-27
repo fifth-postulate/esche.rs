@@ -1,6 +1,7 @@
 //! Styling of Pictures
 
 /// The various styling options
+#[derive(Debug, Clone, Copy)]
 pub struct Style {
     /// Width of a pen stroke
     pub stroke_width: f64

@@ -10,12 +10,13 @@ use picture::Rendering;
 /// `Vec<Shape>`.
 pub fn create_picture(shapes: Vec<Shape>) -> impl Fn(&Bx) -> Rendering {
     move |bx: &Bx| {
-        let _style = style_for(&bx);
+        let style = style_for(&bx);
         let transformation = transformation_from_box(&bx);
-        let _result: Vec<Shape> = shapes.iter()
-        	.map(|shape| map_shape(&transformation, &shape))
-        	.collect();
-        Vec::new()
+        let result: Vec<(Shape, Style)> = shapes.iter()
+        	  .map(|shape| map_shape(&transformation, &shape))
+            .map(|shape| (shape, style.clone()))
+        	  .collect();
+        result
     }
 }
 
