@@ -66,8 +66,10 @@ use std::ops::{Add, Neg, Mul};
 /// Representation of two dimensional vector
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct Vector<T> where T: Clone + Copy {
-    x: T,
-    y: T,
+    /// x-coordinate of the vector
+    pub x: T,
+    /// y-coordinate of the vector
+    pub y: T,
 }
 
 impl<T> Vector<T> where T: Copy + Add<Output=T> + Neg<Output=T> + Mul<Output=T> {
