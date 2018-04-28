@@ -40,7 +40,19 @@ pub fn to_svg(bounds: Bounds, rendering: &Rendering) -> Document {
                 node.assign("stroke-width", style.stroke_width);
                 node.assign("fill", "none");
                 document.append(node);
-            }
+            },
+            Shape::Polygon(points) => {
+                let points = points.iter()
+                    .map(|point| format!("{},{}", point.x, point.y))
+                    .join(" ");
+                let mut node = Svg::Polygon::new()
+                    .set("points", points);
+
+                node.assign("stroke", "black");
+                node.assign("stroke-width", style.stroke_width);
+                node.assign("fill", "none");
+                document.append(node);
+            },
             _ => panic!(),
         }
 
