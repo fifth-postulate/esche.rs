@@ -1,5 +1,7 @@
 //! Primitives that can be drawn
 
+pub mod letter;
+
 use vector::Vector;
 
 /// Basic shapes that can be drawn

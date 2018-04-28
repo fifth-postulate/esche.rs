@@ -54,7 +54,7 @@ pub fn to_svg(bounds: Bounds, rendering: &Rendering) -> Document {
                 document.append(node);
             },
             Shape::Curve(p1, p2, p3, p4) => {
-                let d = format!("M{},{} C{},{} {},{} {},{}",
+                let d = format!("M{} {} C{} {}, {} {}, {} {}",
                                 p1.x, p1.y,
                                 p2.x, p2.y,
                                 p3.x, p3.y,
@@ -68,9 +68,24 @@ pub fn to_svg(bounds: Bounds, rendering: &Rendering) -> Document {
                 node.assign("fill", "none");
                 document.append(node);
             },
-            _ => panic!(),
-        }
+            Shape::Path(start, cntrls) => {
+                let controls = cntrls.iter()
+                    .map(|control| format!("C{} {}, {} {}, {} {}",
+                                           control.mid_point1.x, control.mid_point1.y,
+                                           control.mid_point2.x, control.mid_point2.y,
+                                           control.end_point.x,  control.end_point.y,
+                    ))
+                    .join(" ");
+                let d = format!("M{},{} {}", start.x, start.y, controls);
+                let mut node = Svg::Path::new()
+                    .set("d", d);
 
+                node.assign("stroke", "black");
+                node.assign("stroke-width", style.stroke_width);
+                node.assign("fill", "none");
+                document.append(node);
+            },
+        }
     }
 
     document
