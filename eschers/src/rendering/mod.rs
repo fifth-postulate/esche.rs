@@ -53,6 +53,21 @@ pub fn to_svg(bounds: Bounds, rendering: &Rendering) -> Document {
                 node.assign("fill", "none");
                 document.append(node);
             },
+            Shape::Curve(p1, p2, p3, p4) => {
+                let d = format!("M{},{} C{},{} {},{} {},{}",
+                                p1.x, p1.y,
+                                p2.x, p2.y,
+                                p3.x, p3.y,
+                                p4.x, p4.y,
+                );
+                let mut node = Svg::Path::new()
+                    .set("d", d);
+
+                node.assign("stroke", "black");
+                node.assign("stroke-width", style.stroke_width);
+                node.assign("fill", "none");
+                document.append(node);
+            },
             _ => panic!(),
         }
 
