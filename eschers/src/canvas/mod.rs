@@ -51,3 +51,28 @@ pub fn toss_box(bx: &Box) -> Box {
         bx.c.sub(&bx.b).scale(&0.5)
     )
 }
+
+/// Create two boxes above each other that together make up the original box.
+pub fn split_box_horizontally(factor: f64, bx: &Box) -> (Box, Box) {
+    let top = scale_box_horizontally(factor, &move_box_horizontally(1.0 - factor, &bx));
+    let bottom = scale_box_horizontally(1.0 - factor, &bx);
+
+    (top, bottom)
+}
+
+fn move_box_horizontally(factor: f64, bx: &Box) -> Box {
+    Box::new(
+        bx.a.add(&bx.c.scale(&factor)),
+        bx.b,
+        bx.c
+    )
+}
+
+fn scale_box_horizontally(factor: f64, bx: &Box) -> Box {
+    Box::new(
+        bx.a,
+        bx.b,
+        bx.c.scale(&factor)
+    )
+}
+
