@@ -23,3 +23,12 @@ where Picture: Fn(&Bx) -> Rendering{
         p(&turned_box)
     }
 }
+
+/// Flip the picture
+pub fn flip<Picture>(p: Picture) -> impl Fn(&Bx) -> Rendering
+where Picture: Fn(&Bx) -> Rendering{
+    move |bx: &Bx| {
+        let flipped_box = flip_box(&bx);
+        p(&flipped_box)
+    }
+}

@@ -33,3 +33,12 @@ pub fn turn_box(bx: &Box) -> Box {
         bx.b.neg()
     )
 }
+
+/// Flip box vertically
+pub fn flip_box(bx: &Box) -> Box {
+    Box::new(
+        bx.a.add(&bx.b),
+        bx.b.neg(),
+        bx.c
+    )
+}
