@@ -15,6 +15,8 @@ pub fn to_svg(bounds: Bounds, rendering: &Rendering) -> Document {
     let mut document = Document::new()
         .set("viewbox", (0.0, 0.0, bounds.0, bounds.1));
 
+    let mut group = Svg::Group::new()
+        .set("transform", format!("scale(1,-1) translate(0,{})", -bounds.1));
     for (shape, style) in rendering {
         match shape {
             Shape::Line(line_start, line_end) => {
@@ -27,7 +29,7 @@ pub fn to_svg(bounds: Bounds, rendering: &Rendering) -> Document {
                 node.assign("stroke", "black");
                 node.assign("stroke-width", style.stroke_width);
                 node.assign("fill", "none");
-                document.append(node);
+                group.append(node);
             },
             Shape::PolyLine(points) => {
                 let points = points.iter()
@@ -39,7 +41,7 @@ pub fn to_svg(bounds: Bounds, rendering: &Rendering) -> Document {
                 node.assign("stroke", "black");
                 node.assign("stroke-width", style.stroke_width);
                 node.assign("fill", "none");
-                document.append(node);
+                group.append(node);
             },
             Shape::Polygon(points) => {
                 let points = points.iter()
@@ -51,7 +53,7 @@ pub fn to_svg(bounds: Bounds, rendering: &Rendering) -> Document {
                 node.assign("stroke", "black");
                 node.assign("stroke-width", style.stroke_width);
                 node.assign("fill", "none");
-                document.append(node);
+                group.append(node);
             },
             Shape::Curve(p1, p2, p3, p4) => {
                 let d = format!("M{} {} C{} {}, {} {}, {} {}",
@@ -66,7 +68,7 @@ pub fn to_svg(bounds: Bounds, rendering: &Rendering) -> Document {
                 node.assign("stroke", "black");
                 node.assign("stroke-width", style.stroke_width);
                 node.assign("fill", "none");
-                document.append(node);
+                group.append(node);
             },
             Shape::Path(start, cntrls) => {
                 let controls = cntrls.iter()
@@ -83,10 +85,11 @@ pub fn to_svg(bounds: Bounds, rendering: &Rendering) -> Document {
                 node.assign("stroke", "black");
                 node.assign("stroke-width", style.stroke_width);
                 node.assign("fill", "none");
-                document.append(node);
+                group.append(node);
             },
         }
     }
 
+    document.append(group);
     document
 }
