@@ -42,3 +42,12 @@ pub fn flip_box(bx: &Box) -> Box {
         bx.c
     )
 }
+
+/// Toss box
+pub fn toss_box(bx: &Box) -> Box {
+    Box::new(
+        bx.a.add(&bx.b.add(&bx.c).scale(&0.5)),
+        bx.b.add(&bx.c).scale(&0.5),
+        bx.c.sub(&bx.b).scale(&0.5)
+    )
+}
