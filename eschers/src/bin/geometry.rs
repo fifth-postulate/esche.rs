@@ -4,6 +4,7 @@ extern crate eschers;
 use eschers::vector::Vector;
 use eschers::canvas::Box as Bx;
 use eschers::shape::{Shape, letter};
+use eschers::picture::*;
 use eschers::fitting::create_picture;
 use eschers::rendering::to_svg;
 
@@ -15,7 +16,7 @@ fn main() {
     );
     let shapes = letter::d();
     let source = create_picture(shapes);
-    let picture = source;
+    let picture = turn(source);
     let document = to_svg((400f64, 400f64), &picture(&bx));
     svg::save("output.svg", &document).unwrap();
 }

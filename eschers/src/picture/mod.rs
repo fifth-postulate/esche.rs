@@ -1,6 +1,7 @@
 //! Descriptions of scenes
 
 use canvas::Box as Bx;
+use canvas::*;
 use shape::Shape;
 use style::Style;
 
@@ -11,5 +12,14 @@ pub type Rendering = Vec<(Shape, Style)>;
 pub fn blank() -> impl Fn(&Bx) -> Rendering {
     |_bx: &Bx| {
         Vec::new()
+    }
+}
+
+/// Turn the picture
+pub fn turn<Picture>(p: Picture) -> impl Fn(&Bx) -> Rendering
+where Picture: Fn(&Bx) -> Rendering{
+    move |bx: &Bx| {
+        let turned_box = turn_box(&bx);
+        p(&turned_box)
     }
 }

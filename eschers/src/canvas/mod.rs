@@ -20,6 +20,16 @@ impl Box {
     }
 }
 
+/// The identity function for Box
 pub fn identity(bx: &Box) -> Box {
     Box::new(bx.a, bx.b, bx.c)
+}
+
+/// Rotate box through 90 degrees
+pub fn turn_box(bx: &Box) -> Box {
+    Box::new(
+        bx.a.add(&bx.b),
+        bx.c,
+        bx.b.neg()
+    )
 }
