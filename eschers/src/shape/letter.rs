@@ -3,7 +3,7 @@
 use vector::Vector;
 use super::Shape;
 
-pub fn d_shapes() -> Vec<Shape> {
+pub fn d() -> Vec<Shape> {
     let mut shapes = vec!();
     let inner = inner_d_shape();
     let outer = outer_d_shape();
