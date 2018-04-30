@@ -68,3 +68,24 @@ where P: Fn(&Bx) -> Rendering, Q: Fn(&Bx) -> Rendering {
     above_ratio(p, q, 1, 1)
 }
 
+/// Stack pictures beside each other according to weight
+pub fn beside_ratio<P, Q>(picture_p: Rc<P>, picture_q: Rc<Q>, m: u8, n: u8) -> Rc<impl Fn(&Bx) -> Rendering>
+where P: Fn(&Bx) -> Rendering, Q: Fn(&Bx) -> Rendering {
+    let p = picture_p.clone();
+    let q = picture_q.clone();
+    Rc::new(move |bx: &Bx| {
+        let factor = m as f64 / ((m + n) as f64);
+        let (left, right) = split_box_vertically(factor, &bx);
+        let mut result = vec!();
+        result.extend(p(&left));
+        result.extend(q(&right));
+        result
+    })
+}
+
+/// Stack pictures above each other with equal weight
+pub fn beside<P, Q>(p: Rc<P>, q: Rc<Q>) -> Rc<impl Fn(&Bx) -> Rendering>
+where P: Fn(&Bx) -> Rendering, Q: Fn(&Bx) -> Rendering {
+    beside_ratio(p, q, 1, 1)
+}
+

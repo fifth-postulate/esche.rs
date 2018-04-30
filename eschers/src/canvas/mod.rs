@@ -76,3 +76,27 @@ fn scale_box_horizontally(factor: f64, bx: &Box) -> Box {
     )
 }
 
+/// Create two boxes beside each other that together make up the original box.
+pub fn split_box_vertically(factor: f64, bx: &Box) -> (Box, Box) {
+    let left = scale_box_vertically(factor, &bx);
+    let right = scale_box_vertically(1.0-factor, &move_box_vertically(factor, &bx));
+
+    (left, right)
+}
+
+fn move_box_vertically(factor: f64, bx: &Box) -> Box {
+    Box::new(
+        bx.a.add(&bx.b.scale(&factor)),
+        bx.b,
+        bx.c
+    )
+}
+
+fn scale_box_vertically(factor: f64, bx: &Box) -> Box {
+    Box::new(
+        bx.a,
+        bx.b.scale(&factor),
+        bx.c
+    )
+}
+
