@@ -89,3 +89,9 @@ where P: Fn(&Bx) -> Rendering, Q: Fn(&Bx) -> Rendering {
     beside_ratio(p, q, 1, 1)
 }
 
+/// Create a quartet of pictures
+pub fn quartet<P, Q, R, S>(nw: Rc<P>, ne: Rc<Q>, sw: Rc<R>, se: Rc<S>) -> Rc<impl Fn(&Bx) -> Rendering>
+where P: Fn(&Bx) -> Rendering, Q: Fn(&Bx) -> Rendering, R: Fn(&Bx) -> Rendering, S: Fn(&Bx) -> Rendering {
+    above(beside(nw, ne), beside(sw, se))
+}
+
