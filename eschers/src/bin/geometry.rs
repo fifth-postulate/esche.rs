@@ -1,8 +1,6 @@
 extern crate svg;
 extern crate eschers;
 
-use std::rc::Rc;
-
 use eschers::vector::Vector;
 use eschers::canvas::Box as Bx;
 use eschers::shape::{Shape, letter};
@@ -18,7 +16,7 @@ fn main() {
     );
     let shapes = letter::d();
     let source = create_picture(shapes);
-    let picture = above(source.clone(), Rc::new(flip(source)));
+    let picture = above(source.clone(), flip(source));
     let document = to_svg((400f64, 400f64), &picture(&bx));
     svg::save("output.svg", &document).unwrap();
 }
