@@ -1,5 +1,7 @@
 //! Creating a `Picture` from `Shape`s
 
+use std::rc::Rc;
+
 use vector::Vector;
 use canvas::Box as Bx;
 use shape::{Shape, ControlPoint};
@@ -8,8 +10,8 @@ use picture::Rendering;
 
 /// Creates a `Picture`, i.e. a `Fn(canvas::Box) -> Vec<(Shape, Style)>`, from
 /// `Vec<Shape>`.
-pub fn create_picture(shapes: Vec<Shape>) -> impl Fn(&Bx) -> Rendering {
-    move |bx: &Bx| {
+pub fn create_picture(shapes: Vec<Shape>) -> Rc<impl Fn(&Bx) -> Rendering> {
+    Rc::new(move |bx: &Bx| {
         let style = style_for(&bx);
         let transformation = transformation_from_box(&bx);
         let result: Vec<(Shape, Style)> = shapes.iter()
@@ -17,7 +19,7 @@ pub fn create_picture(shapes: Vec<Shape>) -> impl Fn(&Bx) -> Rendering {
             .map(|shape| (shape, style.clone()))
         	  .collect();
         result
-    }
+    })
 }
 
 fn style_for(bx: &Bx) -> Style {
