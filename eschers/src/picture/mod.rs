@@ -133,3 +133,14 @@ where P: Fn(&Bx) -> Rendering, Q: Fn(&Bx) -> Rendering {
         result
     })
 }
+
+/// The T-tile
+pub fn ttile<P>(p: Rc<P>) -> Rc<impl Fn(&Bx) -> Rendering>
+where P: Fn(&Bx) -> Rendering {
+    let big = p.clone();
+    let top = flip(toss(p.clone()));
+    let right = turn(turn(turn(top.clone())));
+    over(big, over(top, right))
+}
+
+
