@@ -143,4 +143,10 @@ where P: Fn(&Bx) -> Rendering {
     over(big, over(top, right))
 }
 
-
+/// The T-tile
+pub fn utile<P>(p: Rc<P>) -> Rc<impl Fn(&Bx) -> Rendering>
+where P: Fn(&Bx) -> Rendering {
+    let top = flip(toss(p.clone()));
+    let upper_left = over(top.clone(), turn(top));
+    over(upper_left.clone(), turn(turn(upper_left)))
+}
