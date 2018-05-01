@@ -95,3 +95,28 @@ where P: Fn(&Bx) -> Rendering, Q: Fn(&Bx) -> Rendering, R: Fn(&Bx) -> Rendering,
     above(beside(nw, ne), beside(sw, se))
 }
 
+/// Create a nonet of pictures
+pub fn nonet<P, Q, R, S, T, U, V, W, X>(
+    nw: Rc<P>, nm: Rc<Q>, ne: Rc<R>,
+    mw: Rc<S>, mm: Rc<T>, me: Rc<U>,
+    sw: Rc<V>, sm: Rc<W>, se: Rc<X>) -> Rc<impl Fn(&Bx) -> Rendering>
+where P: Fn(&Bx) -> Rendering, Q: Fn(&Bx) -> Rendering, R: Fn(&Bx) -> Rendering,
+      S: Fn(&Bx) -> Rendering, T: Fn(&Bx) -> Rendering, U: Fn(&Bx) -> Rendering,
+      V: Fn(&Bx) -> Rendering, W: Fn(&Bx) -> Rendering, X: Fn(&Bx) -> Rendering {
+    column(
+        row(nw, nm, ne),
+        row(mw, mm, me),
+        row(sw, sm, se)
+    )
+}
+
+fn column<P, Q, R>(n: Rc<P>, m: Rc<Q>, s: Rc<R>) -> Rc<impl Fn(&Bx) -> Rendering>
+where P: Fn(&Bx) -> Rendering, Q: Fn(&Bx) -> Rendering, R: Fn(&Bx) -> Rendering {
+    above_ratio(n, above(m, s), 1, 2)
+}
+
+
+fn row<P, Q, R>(w: Rc<P>, m: Rc<Q>, e: Rc<R>) -> Rc<impl Fn(&Bx) -> Rendering>
+where P: Fn(&Bx) -> Rendering, Q: Fn(&Bx) -> Rendering, R: Fn(&Bx) -> Rendering {
+    beside_ratio(w, beside(m, e), 1, 2)
+}
