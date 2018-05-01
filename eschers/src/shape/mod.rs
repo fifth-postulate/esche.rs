@@ -1,6 +1,7 @@
 //! Primitives that can be drawn
 
 pub mod letter;
+pub mod escher;
 
 use vector::Vector;
 
