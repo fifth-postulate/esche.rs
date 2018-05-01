@@ -120,3 +120,16 @@ fn row<P, Q, R>(w: Rc<P>, m: Rc<Q>, e: Rc<R>) -> Rc<impl Fn(&Bx) -> Rendering>
 where P: Fn(&Bx) -> Rendering, Q: Fn(&Bx) -> Rendering, R: Fn(&Bx) -> Rendering {
     beside_ratio(w, beside(m, e), 1, 2)
 }
+
+/// Place two pictures over each other
+pub fn over<P, Q>(picture_p: Rc<P>, picture_q: Rc<Q>) -> Rc<impl Fn(&Bx) -> Rendering>
+where P: Fn(&Bx) -> Rendering, Q: Fn(&Bx) -> Rendering {
+    let p = picture_p.clone();
+    let q = picture_q.clone();
+    Rc::new(move |bx: &Bx| {
+        let mut result = vec!();
+        result.extend(p(&bx));
+        result.extend(q(&bx));
+        result
+    })
+}

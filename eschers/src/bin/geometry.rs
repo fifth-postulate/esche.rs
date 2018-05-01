@@ -16,7 +16,7 @@ fn main() {
     );
     let shapes = escher::fish();
     let source = create_picture(shapes);
-    let picture = source;
+    let picture = over(source.clone(), turn(turn(source)));
     let document = to_svg((400f64, 400f64), &picture(&bx));
     svg::save("output.svg", &document).unwrap();
 }
