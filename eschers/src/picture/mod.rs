@@ -187,3 +187,30 @@ where P: Fn(&Bx) -> Rendering {
         }
     })
 }
+
+/// The ultimate goal: Escher's Square Limit
+pub fn square_limit<P>(picture_p: Rc<P>, n: u8) -> Rc<impl Fn(&Bx) -> Rendering>
+where P: Fn(&Bx) -> Rendering {
+    let p = picture_p.clone();
+    Rc::new(move |bx: &Bx|{
+        if n == 0 {
+            let q = blank();
+            q(&bx)
+        } else {
+            let mm = ttile(p.clone());
+
+            let nm = side(p.clone(), n);
+            let mw = turn(nm.clone());
+            let sm = turn(mw.clone());
+            let me = turn(sm.clone());
+
+            let nw = corner(p.clone(), n);
+            let sw = turn(nw.clone());
+            let se = turn(sw.clone());
+            let ne = turn(se.clone());
+
+            let q = nonet(nw, nm, ne, mw, mm, me, sw, sm, se);
+            q(&bx)
+        }
+    })
+}
