@@ -150,3 +150,21 @@ where P: Fn(&Bx) -> Rendering {
     let upper_left = over(top.clone(), turn(top));
     over(upper_left.clone(), turn(turn(upper_left)))
 }
+
+/// The side of the square limit
+pub fn side<P>(picture_p: Rc<P>, n: u8) -> Rc<impl Fn(&Bx) -> Rendering>
+where P: Fn(&Bx) -> Rendering {
+    let p = picture_p.clone();
+    Rc::new(move |bx: &Bx|{
+        if n == 0 {
+            let q = blank();
+            q(&bx)
+        } else {
+            let recurse = side(p.clone(), n - 1);
+            let se = ttile(p.clone());
+            let sw = turn(se.clone());
+            let q = quartet(recurse.clone(), recurse, sw, se);
+            q(&bx)
+        }
+    })
+}
