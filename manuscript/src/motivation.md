@@ -9,7 +9,7 @@ _Square Limit_.
 ![Square Limit, Escher 1964](https://uploads3.wikiart.org/images/m-c-escher/square-limit.jpg!Large.jpg)
 
 The 2002 reprint of [the article](https://eprints.soton.ac.uk/257577/1/funcgeo2.pdf)
-inspires [Einar Host](https://einarwh.wordpress.com/) to give a 
+inspired [Einar Host](https://einarwh.wordpress.com/) to give a 
 [talk](https://einarwh.wordpress.com/2017/07/22/picture-combinators-and-recursive-fish/)
 and a [workshop](https://github.com/einarwh/escher-workshop).
 
