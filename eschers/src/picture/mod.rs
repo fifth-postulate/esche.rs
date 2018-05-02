@@ -168,3 +168,22 @@ where P: Fn(&Bx) -> Rendering {
         }
     })
 }
+
+/// The corner of the square limit
+pub fn corner<P>(picture_p: Rc<P>, n: u8) -> Rc<impl Fn(&Bx) -> Rendering>
+where P: Fn(&Bx) -> Rendering {
+    let p = picture_p.clone();
+    Rc::new(move |bx: &Bx|{
+        if n == 0 {
+            let q = blank();
+            q(&bx)
+        } else {
+            let nw = corner(p.clone(), n - 1);
+            let ne = side(p.clone(), n-1);
+            let sw = turn(ne.clone());
+            let se = utile(p.clone());
+            let q = quartet(nw, ne, sw, se);
+            q(&bx)
+        }
+    })
+}
