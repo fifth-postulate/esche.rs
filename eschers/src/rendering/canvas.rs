@@ -50,6 +50,28 @@ pub fn to_svg(bounds: Bounds, bx: &Bx) -> Document {
     node.assign("fill", "none");
     group.append(node);
 
+    node = Svg::Line::new()
+        .set("x1", bx.a.x + bx.b.x)
+        .set("y1", bx.a.y + bx.b.y)
+        .set("x2", bx.a.x + bx.b.x + bx.c.x)
+        .set("y2", bx.a.y + bx.b.y + bx.c.y);
+
+    node.assign("stroke", "gray");
+    node.assign("stroke-width", "3");
+    node.assign("fill", "none");
+    group.append(node);
+
+    node = Svg::Line::new()
+        .set("x1", bx.a.x + bx.c.x)
+        .set("y1", bx.a.y + bx.c.y)
+        .set("x2", bx.a.x + bx.b.x + bx.c.x)
+        .set("y2", bx.a.y + bx.b.y + bx.c.y);
+
+    node.assign("stroke", "gray");
+    node.assign("stroke-width", "3");
+    node.assign("fill", "none");
+    group.append(node);
+
     document.append(group);
     document
 }
