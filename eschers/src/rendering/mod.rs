@@ -1,5 +1,7 @@
 //! Turning a `Rendering` into an SVG.
 
+pub mod canvas;
+
 use svg::Document;
 use svg::node::Node;
 use svg::node::element as Svg;
