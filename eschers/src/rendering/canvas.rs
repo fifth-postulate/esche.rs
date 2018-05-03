@@ -23,7 +23,7 @@ pub fn to_svg(bounds: Bounds, bx: &Bx) -> Document {
         .set("x2", bx.a.x)
         .set("y2", bx.a.y);
 
-    node.assign("stroke", "black");
+    node.assign("stroke", "red");
     node.assign("stroke-width", "3");
     node.assign("fill", "none");
     group.append(node);
@@ -34,7 +34,7 @@ pub fn to_svg(bounds: Bounds, bx: &Bx) -> Document {
         .set("x2", bx.a.x + bx.b.x)
         .set("y2", bx.a.y + bx.b.y);
 
-    node.assign("stroke", "black");
+    node.assign("stroke", "orange");
     node.assign("stroke-width", "3");
     node.assign("fill", "none");
     group.append(node);
@@ -45,7 +45,7 @@ pub fn to_svg(bounds: Bounds, bx: &Bx) -> Document {
         .set("x2", bx.a.x + bx.c.x)
         .set("y2", bx.a.y + bx.c.y);
 
-    node.assign("stroke", "black");
+    node.assign("stroke", "purple");
     node.assign("stroke-width", "3");
     node.assign("fill", "none");
     group.append(node);
