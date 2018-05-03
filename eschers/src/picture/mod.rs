@@ -197,7 +197,7 @@ where P: Fn(&Bx) -> Rendering {
             let q = blank();
             q(&bx)
         } else {
-            let mm = ttile(p.clone());
+            let mm = utile(p.clone());
 
             let nm = side(p.clone(), n);
             let mw = turn(nm.clone());
