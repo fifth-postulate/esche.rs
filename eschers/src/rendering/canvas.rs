@@ -14,6 +14,50 @@ pub fn to_svg(bounds: Bounds, bx: &Bx) -> Document {
     let mut document = Document::new()
         .set("viewbox", (0.0, 0.0, bounds.0, bounds.1));
 
+    let mut defs = Svg::Definitions::new();
+    let mut marker = Svg::Marker::new()
+        .set("id", "red-triangle")
+        .set("viewBox", "0 0 10 10")
+        .set("refX", 10)
+        .set("refY", 5)
+        .set("markerWidth", 6)
+        .set("markerHeight", 6)
+        .set("orient", "auto");
+    let mut path = Svg::Path::new()
+        .set("d", "M 0 0 L 10 5 L 0 10 z")
+        .set("fill", "red");
+    marker.append(path);
+    defs.append(marker);
+
+    marker = Svg::Marker::new()
+        .set("id", "orange-triangle")
+        .set("viewBox", "0 0 10 10")
+        .set("refX", 10)
+        .set("refY", 5)
+        .set("markerWidth", 6)
+        .set("markerHeight", 6)
+        .set("orient", "auto");
+    path = Svg::Path::new()
+        .set("d", "M 0 0 L 10 5 L 0 10 z")
+        .set("fill", "orange");
+    marker.append(path);
+    defs.append(marker);
+
+    marker = Svg::Marker::new()
+        .set("id", "purple-triangle")
+        .set("viewBox", "0 0 10 10")
+        .set("refX", 10)
+        .set("refY", 5)
+        .set("markerWidth", 6)
+        .set("markerHeight", 6)
+        .set("orient", "auto");
+    path = Svg::Path::new()
+        .set("d", "M 0 0 L 10 5 L 0 10 z")
+        .set("fill", "purple");
+    marker.append(path);
+    defs.append(marker);
+    document.append(defs);
+
     let mut group = Svg::Group::new()
         .set("transform", format!("scale(1,-1) translate(0,{})", -bounds.1));
 
@@ -25,7 +69,8 @@ pub fn to_svg(bounds: Bounds, bx: &Bx) -> Document {
 
     node.assign("stroke", "red");
     node.assign("stroke-width", "3");
-    node.assign("fill", "none");
+    node.assign("fill", "red");
+    node.assign("marker-end", "url(#red-triangle)");
     group.append(node);
 
     node = Svg::Line::new()
@@ -37,6 +82,7 @@ pub fn to_svg(bounds: Bounds, bx: &Bx) -> Document {
     node.assign("stroke", "orange");
     node.assign("stroke-width", "3");
     node.assign("fill", "none");
+    node.assign("marker-end", "url(#orange-triangle)");
     group.append(node);
 
     node = Svg::Line::new()
@@ -48,6 +94,7 @@ pub fn to_svg(bounds: Bounds, bx: &Bx) -> Document {
     node.assign("stroke", "purple");
     node.assign("stroke-width", "3");
     node.assign("fill", "none");
+    node.assign("marker-end", "url(#purple-triangle)");
     group.append(node);
 
     node = Svg::Line::new()
