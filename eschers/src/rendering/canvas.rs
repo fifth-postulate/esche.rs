@@ -58,6 +58,7 @@ pub fn to_svg(bounds: Bounds, bx: &Bx) -> Document {
 
     node.assign("stroke", "gray");
     node.assign("stroke-width", "3");
+    node.assign("stroke-dasharray", "3, 5");
     node.assign("fill", "none");
     group.append(node);
 
@@ -69,6 +70,7 @@ pub fn to_svg(bounds: Bounds, bx: &Bx) -> Document {
 
     node.assign("stroke", "gray");
     node.assign("stroke-width", "3");
+    node.assign("stroke-dasharray", "3, 5");
     node.assign("fill", "none");
     group.append(node);
 
