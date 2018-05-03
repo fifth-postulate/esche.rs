@@ -2,6 +2,7 @@
 
 pub mod letter;
 pub mod escher;
+pub mod grid;
 
 use vector::Vector;
 
