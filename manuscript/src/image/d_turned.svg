@@ -1,0 +1,6 @@
+<svg viewbox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+<g transform="scale(1,-1) translate(0,-400)">
+<polygon fill="none" points="265,175 210,175 200,185 200,225 275,225 275,185" stroke="black" stroke-width="3.125"/>
+<polygon fill="none" points="275,150 200,150 175,175 175,225 100,225 100,250 300,250 300,175" stroke="black" stroke-width="3.125"/>
+</g>
+</svg>
