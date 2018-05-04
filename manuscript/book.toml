@@ -8,4 +8,5 @@ src = "src"
 build-dir = "../docs/"
 
 [output.html]
+additional-css = ["geometry.css"]
 mathjax-support = true

@@ -1,0 +1,11 @@
+.content {
+    max-width: 805px;
+}
+
+.reference {
+    max-width: 100%;
+}
+
+.reference img {
+    display: inline-block;
+}
