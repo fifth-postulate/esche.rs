@@ -137,6 +137,27 @@ reference box fields <code>a</code>, <code>b</code>, <code>c</code>.</p>
   <img src="image/box_turned.svg" alt="The standard box turned" width="400px" height="400px">
   <img src="image/box.svg" alt="The standard box for reference" width="400px" height="400px">
 </div>
+<p>Notice that for the target box the <code>a</code> field is the sum of the original box <code>a</code>
+and <code>b</code> field.</p>
+<p><img src="image/vector_sum.svg" alt="Vector sum of a and b" width="400px"
+height="400px"></p>
+<p>The new <code>b</code> is the original <code>c</code> and the new <code>c</code> is the original <code>b</code> negated.</p>
+<a class="header" href="turn.html#implement" id="implement"><h2>Implement</h2></a>
+<p>Open <code>src/canvas/mod.rs</code> and find the <code>turn_box</code> function. At the moment it is
+implemented by calling the identity function on its argument</p>
+<pre><code>identity(&amp;bx)
+</code></pre>
+<p>We need to change that and return a turned box. <code>Box</code> has a constructor called
+<code>new</code>. When provided with three <code>Vector</code> arguments it will a create a box with
+the corresponding fields.</p>
+<p>Take a look at the documentation for <code>Vector</code> in order to figure out how to do
+vector addition and vector negation.</p>
+<p>Having done that, try to implement the <code>turn_box</code> function correctly. You can
+test your function by running <code>geometry</code> binary.</p>
+<pre><code class="language-shell">cargo run --bin geometry
+</code></pre>
+<p>This should produce an <code>output.svg</code> and if you implemented <code>turn_box</code> correctly
+should show the letter d turned.</p>
 
                     </main>
 
