@@ -41,3 +41,50 @@ By copying each cell one by one, the original logo is recreated.
   <img src="image/grid-logo-copy03.svg" alt="Three cells copied of the Rust logo" width="400px" height="400px">
 </div>
 
+until the original is completely copied.
+
+
+<div class="reference">
+  <img src="image/grid-logo.svg" alt="A grid over the Rust logo" width="400px" height="400px">
+  <img src="image/grid-logo.svg" alt="The Rust logo copied by the grid method" width="400px" height="400px">
+</div>
+
+## Variations
+Once we understand the basics of the grid method, we can start to look for
+variations. Nobody is restricting you to draw the target grid differently.
+
+### Scale
+We could scale the grid.
+
+<div class="reference">
+  <img src="image/grid-logo.svg" alt="A grid over the Rust logo" width="400px" height="400px">
+  <img src="image/grid-logo-scaled.svg" alt="The Rust logo scaled by the grid method" width="400px" height="400px">
+</div>
+
+### Non-uniform scale
+We could scale the grid non-uniformly.
+
+<div class="reference">
+  <img src="image/grid-logo.svg" alt="A grid over the Rust logo" width="400px" height="400px">
+  <img src="image/grid-logo-non-uniformly-scaled.svg" alt="The Rust logo scaled by the grid method" width="400px" height="400px">
+</div>
+
+### Shearing
+We could shear the grid.
+
+<div class="reference">
+  <img src="image/grid-logo.svg" alt="A grid over the Rust logo" width="400px" height="400px">
+  <img src="image/grid-logo-shear.svg" alt="The Rust logo scaled by the grid method" width="400px" height="400px">
+</div>
+
+### Combination
+Or we could combine various transformation and apply that to the grid.
+
+<div class="reference">
+  <img src="image/grid-logo.svg" alt="A grid over the Rust logo" width="400px" height="400px">
+  <img src="image/grid-logo-combination.svg" alt="The Rust logo scaled by the grid method" width="400px" height="400px">
+</div>
+
+Because we will make extensive use of the grid method, and want to easily
+manipulate the grid, we will introduce an _box_ abstraction.
+
