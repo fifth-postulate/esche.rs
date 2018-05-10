@@ -9,3 +9,16 @@ grid method relies on a box. So we better should get to know our boxes.
 Above you find a pictorial representation of a _box_. It is defined by three
 vectors, `a`, which is red in the picture, `b` which is orange in the picture
 and `c` which is purple in the picture. 
+
+```rust
+/// A Box represents the area and position that we will draw in.
+#[derive(Debug, PartialEq, Clone, Copy)]
+pub struct Box {
+    /// Determines the origin of the drawing area, used to position the box.
+    pub a: Vector<f64>,
+    /// Determines the x axis of the box.
+    pub b: Vector<f64>,
+    /// Determines the y axis of the box.
+    pub c: Vector<f64>,
+}
+```

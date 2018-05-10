@@ -217,6 +217,20 @@ grid method relies on a box. So we better should get to know our boxes.</p>
 <p>Above you find a pictorial representation of a <em>box</em>. It is defined by three
 vectors, <code>a</code>, which is red in the picture, <code>b</code> which is orange in the picture
 and <code>c</code> which is purple in the picture.</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+/// A Box represents the area and position that we will draw in.
+#[derive(Debug, PartialEq, Clone, Copy)]
+pub struct Box {
+    /// Determines the origin of the drawing area, used to position the box.
+    pub a: Vector&lt;f64&gt;,
+    /// Determines the x axis of the box.
+    pub b: Vector&lt;f64&gt;,
+    /// Determines the y axis of the box.
+    pub c: Vector&lt;f64&gt;,
+}
+#}</code></pre></pre>
 <a class="header" href="print.html#turn" id="turn"><h1>Turn</h1></a>
 <p><img src="image/d_turned.svg" alt="The letter d turned" width="400px" height="400px"></p>
 <p>Our goal is to turn our letter through ninety degrees. As explained in the
