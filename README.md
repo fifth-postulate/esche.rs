@@ -18,6 +18,7 @@ In the root directory of this project you will find:
 1. `manuscript`. An mdbook powered manual that will guide you through the workshop.
 2. `starter`. Starter code for the workshop.
 3. `eschers`. The source code for the project.
+4. `docs`. The rendered manuscript.
 
 [escher-in-elm]: https://github.com/einarwh/escher-workshop
 [host]: https://einarwh.wordpress.com/
