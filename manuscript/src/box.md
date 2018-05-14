@@ -22,3 +22,7 @@ pub struct Box {
     pub c: Vector<f64>,
 }
 ```
+
+The above `struct` is a literal conversion from the picture. If you are
+wondering what these `Vector`s are, take a look at the
+[documentation](doc/eschers/index.html). 
