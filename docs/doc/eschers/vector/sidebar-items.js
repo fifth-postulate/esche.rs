@@ -1,1 +1,0 @@
-initSidebarItems({"struct":[["Vector","Representation of two dimensional vector"]]});

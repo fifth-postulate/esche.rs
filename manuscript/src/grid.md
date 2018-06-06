@@ -86,5 +86,5 @@ Or we could combine various transformation and apply that to the grid.
 </div>
 
 Because we will make extensive use of the grid method, and want to easily
-manipulate the grid, we will introduce an _box_ abstraction.
+manipulate the grid, we will introduce a _box_ abstraction.
 
