@@ -14,9 +14,9 @@ fn main() {
         Vector::new(400f64, 0f64),
         Vector::new(0f64, 400f64)
     );
-    let shapes = grid::square(5);
+    let shapes = letter::d();
     let source = create_picture(shapes);
-    let picture = source;
+    let picture = turn(source);
     let document = to_svg((400f64, 400f64), &picture(&bx));
     svg::save("output.svg", &document).unwrap();
 }

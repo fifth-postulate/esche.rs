@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Title - Esche.rs</title>
+        <title>Flip - Esche.rs</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="A book accompanying a workshop to recreate Escher's square limit.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -79,7 +79,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li class="affix"><a href="title.html" class="active">Title</a></li><li class="affix"><a href="motivation.html">Motivation</a></li><li class="affix"><a href="grid.html">Grid method</a></li><li class="affix"><a href="box.html">Box</a></li><li><a href="turn.html"><strong aria-hidden="true">1.</strong> Turn</a></li><li><a href="flip.html"><strong aria-hidden="true">2.</strong> Flip</a></li></ol>
+            <ol class="chapter"><li class="affix"><a href="title.html">Title</a></li><li class="affix"><a href="motivation.html">Motivation</a></li><li class="affix"><a href="grid.html">Grid method</a></li><li class="affix"><a href="box.html">Box</a></li><li><a href="turn.html"><strong aria-hidden="true">1.</strong> Turn</a></li><li><a href="flip.html" class="active"><strong aria-hidden="true">2.</strong> Flip</a></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -125,20 +125,97 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="title.html#eschers" id="eschers"><h1>Esche.rs</h1></a>
-<a class="header" href="title.html#exploring-functional-geometry" id="exploring-functional-geometry"><h2>Exploring functional geometry</h2></a>
-<p><img src="https://uploads3.wikiart.org/images/m-c-escher/square-limit.jpg!Large.jpg" alt="Square Limit, Escher 1964" /></p>
+                        <a class="header" href="flip.html#flip" id="flip"><h1>Flip</h1></a>
+<p><img src="image/d_flipped.svg" alt="The letter d flipped" width="400px" height="400px"></p>
+<p>Now our new goal is to flip our letter. Just as for the turned picture, we are
+going to do this by flipping the box. For the next few chapters this will be our
+goal; finding a target box.</p>
+<p>Again, we see our goal box on the right, and the reference box on the left. Let's
+figure out the relations between the new box fields <code>a</code>, <code>b</code> and <code>c</code> and the
+reference box fields <code>a</code>, <code>b</code>, <code>c</code>.</p>
+<div class="reference">
+  <img src="image/box.svg" alt="The standard box for reference" width="400px" height="400px">
+  <img src="image/box_flipped.svg" alt="The standard box flipped" width="400px" height="400px">
+</div>
+<p>Notice that for the target box the <code>a</code> field is again the sum of the original box <code>a</code>
+and <code>b</code> field.</p>
+<p><img src="image/vector_sum.svg" alt="Vector sum of a and b" width="400px"
+height="400px"></p>
+<p>The new <code>b</code> is the original <code>b</code> negated and the new <code>c</code> is the original <code>c</code>.</p>
+<a class="header" href="flip.html#implement" id="implement"><h2>Implement</h2></a>
+<p>Open <code>src/canvas/mod.rs</code> and find the <code>flip_box</code> function. Just like the
+<code>turn_box</code> function before, it is implemented by calling the identity function
+on its argument</p>
+<pre><code>identity(&amp;bx)
+</code></pre>
+<p>We need to change that and return a flipped box. It is very is very similar to
+the <code>turn_box</code> function, so a good start is to copy that body and change it.</p>
+<p>Testing your function is a little bit more involved now. Early you could run
+<code>geometry</code> binary. Below you can find the <code>main</code> function of the <code>geometry</code>
+binary.</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+let bx = Bx::new(
+    Vector::new(0f64, 0f64),
+    Vector::new(400f64, 0f64),
+    Vector::new(0f64, 400f64)
+);
+let shapes = letter::d();
+let source = create_picture(shapes);
+let picture = turn(source);
+let document = to_svg((400f64, 400f64), &amp;picture(&amp;bx));
+svg::save(&quot;output.svg&quot;, &amp;document).unwrap();
+#}</code></pre></pre>
+<p>The line to look out for is the <code>let picture</code> line. Here we call the function
+<code>turn</code> on our source shape. This function is found in the <code>picture</code> module. The
+<code>turn</code> function is reproduced here.</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+pub fn turn&lt;Picture&gt;(picture: Rc&lt;Picture&gt;) -&gt; Rc&lt;impl Fn(&amp;Bx) -&gt; Rendering&gt;
+where Picture: Fn(&amp;Bx) -&gt; Rendering{
+    let p = picture.clone();
+    Rc::new(move |bx: &amp;Bx| {
+        let turned_box = turn_box(&amp;bx);
+        p(&amp;turned_box)
+    })
+}
+#}</code></pre></pre>
+<p>Whoah, look at that signature! It is wild! Take a deep breath, we will look will
+explain the signature in a moment. The important parts, the part that turns the
+picture is nicely tucked away.</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+let turned_box = turn_box(&amp;bx);
+p(&amp;turned_box)
+#}</code></pre></pre>
+<p>Here we recognize our <code>turn_box</code> function, returning a <code>turned_box</code> which is
+passed as an argument to what ever <code>p</code> is.</p>
+<p>There is a lot going on besides that in the turn picture, but a lot of it is
+boilerplate. We will explain that shortly. For now just copy the body of the
+<code>turn</code> function, replace the body of the <code>flip</code> function with the copy and alter
+it to use your <code>flip_box</code> function instead.</p>
+<p>This takes care of the <code>flip</code> function, but it still needs to be called. Open
+the <code>geometry</code> binary and change the <code>let picture</code> to call <code>flip</code> instead of
+<code>turn</code> on the source.</p>
+<p>If every thing worked out just fine, you should be able to run <code>geomtry</code> with
+the following command</p>
+<pre><code class="language-shell">cargo run --bin geometry
+</code></pre>
+<p>and find a flipped letter d in <code>output.svg</code>.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-
-                        
-                            <a rel="next" href="motivation.html" class="mobile-nav-chapters next" title="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
+                            <a rel="prev" href="turn.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
                             </a>
+                        
+
                         
 
                         <div style="clear: both"></div>
@@ -148,11 +225,11 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-
-                
-                    <a href="motivation.html" class="nav-chapters next" title="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
+                    <a href="turn.html" class="nav-chapters previous" title="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
                     </a>
+                
+
                 
             </nav>
 
