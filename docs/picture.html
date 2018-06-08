@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Grid method - Esche.rs</title>
+        <title>Picture - Esche.rs</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="A book accompanying a workshop to recreate Escher's square limit.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -79,7 +79,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li class="affix"><a href="title.html">Title</a></li><li class="affix"><a href="motivation.html">Motivation</a></li><li class="affix"><a href="grid.html" class="active">Grid method</a></li><li class="affix"><a href="box.html">Box</a></li><li><a href="turn.html"><strong aria-hidden="true">1.</strong> Turn</a></li><li><a href="flip.html"><strong aria-hidden="true">2.</strong> Flip</a></li><li><a href="picture.html"><strong aria-hidden="true">3.</strong> Picture</a></li></ol>
+            <ol class="chapter"><li class="affix"><a href="title.html">Title</a></li><li class="affix"><a href="motivation.html">Motivation</a></li><li class="affix"><a href="grid.html">Grid method</a></li><li class="affix"><a href="box.html">Box</a></li><li><a href="turn.html"><strong aria-hidden="true">1.</strong> Turn</a></li><li><a href="flip.html"><strong aria-hidden="true">2.</strong> Flip</a></li><li><a href="picture.html" class="active"><strong aria-hidden="true">3.</strong> Picture</a></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -125,85 +125,34 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="grid.html#grid-method" id="grid-method"><h1>Grid method</h1></a>
-<p>During the workshop we will be relying on a technique well know to painters. It
-is called the <a href="https://www.art-is-fun.com/grid-method"><em>grid method</em></a>.</p>
-<p>Let's explain this method with our t<strong>Rust</strong>ed logo.</p>
-<p><img src="image/rust-logo-blk.svg" alt="The Rust logo" width="400px" height="400px"></p>
-<p>The first thing we do to our logo is overlay a grid.</p>
-<p><img src="image/grid-logo.svg" alt="A grid over the Rust logo" width="400px" height="400px"></p>
-<p>Next we draw a second grid, similar to the first.</p>
-<div class="reference">
-  <img src="image/grid-logo.svg" alt="A grid over the Rust logo" width="400px" height="400px">
-  <img src="image/grid.svg" alt="A single grid" width="400px" height="400px">
-</div>
-<p>Now we focus on a single cell in the original grid, and accurately copy it in
-the corresponding grid in the target grid. Going from top to bottom and from
-left to right, our first cell is empty. The second cell has a single tooth of
-the gear. Let's copy it over.</p>
-<div class="reference">
-  <img src="image/grid-logo.svg" alt="A grid over the Rust logo" width="400px" height="400px">
-  <img src="image/grid-logo-copy01.svg" alt="One cell copied of the Rust logo" width="400px" height="400px">
-</div>
-<p>The following cell has some more teeth.</p>
-<div class="reference">
-  <img src="image/grid-logo.svg" alt="A grid over the Rust logo" width="400px" height="400px">
-  <img src="image/grid-logo-copy02.svg" alt="Two cells copied of the Rust logo" width="400px" height="400px">
-</div>
-<p>By copying each cell one by one, the original logo is recreated.</p>
-<div class="reference">
-  <img src="image/grid-logo.svg" alt="A grid over the Rust logo" width="400px" height="400px">
-  <img src="image/grid-logo-copy03.svg" alt="Three cells copied of the Rust logo" width="400px" height="400px">
-</div>
-<p>until the original is completely copied.</p>
-<div class="reference">
-  <img src="image/grid-logo.svg" alt="A grid over the Rust logo" width="400px" height="400px">
-  <img src="image/grid-logo.svg" alt="The Rust logo copied by the grid method" width="400px" height="400px">
-</div>
-<a class="header" href="grid.html#variations" id="variations"><h2>Variations</h2></a>
-<p>Once we understand the basics of the grid method, we can start to look for
-variations. Nobody is restricting you to draw the target grid differently.</p>
-<a class="header" href="grid.html#scale" id="scale"><h3>Scale</h3></a>
-<p>We could scale the grid.</p>
-<div class="reference">
-  <img src="image/grid-logo.svg" alt="A grid over the Rust logo" width="400px" height="400px">
-  <img src="image/grid-logo-scaled.svg" alt="The Rust logo scaled by the grid method" width="400px" height="400px">
-</div>
-<a class="header" href="grid.html#non-uniform-scale" id="non-uniform-scale"><h3>Non-uniform scale</h3></a>
-<p>We could scale the grid non-uniformly.</p>
-<div class="reference">
-  <img src="image/grid-logo.svg" alt="A grid over the Rust logo" width="400px" height="400px">
-  <img src="image/grid-logo-non-uniformly-scaled.svg" alt="The Rust logo scaled by the grid method" width="400px" height="400px">
-</div>
-<a class="header" href="grid.html#shearing" id="shearing"><h3>Shearing</h3></a>
-<p>We could shear the grid.</p>
-<div class="reference">
-  <img src="image/grid-logo.svg" alt="A grid over the Rust logo" width="400px" height="400px">
-  <img src="image/grid-logo-shear.svg" alt="The Rust logo scaled by the grid method" width="400px" height="400px">
-</div>
-<a class="header" href="grid.html#combination" id="combination"><h3>Combination</h3></a>
-<p>Or we could combine various transformation and apply that to the grid.</p>
-<div class="reference">
-  <img src="image/grid-logo.svg" alt="A grid over the Rust logo" width="400px" height="400px">
-  <img src="image/grid-logo-combination.svg" alt="The Rust logo scaled by the grid method" width="400px" height="400px">
-</div>
-<p>Because we will make extensive use of the grid method, and want to easily
-manipulate the grid, we will introduce a <em>box</em> abstraction.</p>
+                        <a class="header" href="picture.html#picture" id="picture"><h1>Picture</h1></a>
+<p>In the last chapter we looked at the interesting signature of the <code>turn</code>
+function. We will repeated it here.</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+pub fn turn&lt;Picture&gt;(picture: Rc&lt;Picture&gt;) -&gt; Rc&lt;impl Fn(&amp;Bx) -&gt; Rendering&gt;
+where Picture: Fn(&amp;Bx) -&gt; Rendering 
+#}</code></pre></pre>
+<p>There is a lot going on. There is even a piece of information missing. I.e.
+<code>Rendering</code> is a type alias.</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+pub type Rendering = Vec&lt;(Shape, Style)&gt;;
+#}</code></pre></pre>
+<p>Let's take some time to think and see what this signature is all about.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="motivation.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="flip.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
-                        
-                            <a rel="next" href="box.html" class="mobile-nav-chapters next" title="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
-                            </a>
                         
 
                         <div style="clear: both"></div>
@@ -213,15 +162,11 @@ manipulate the grid, we will introduce a <em>box</em> abstraction.</p>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="motivation.html" class="nav-chapters previous" title="Previous chapter" aria-keyshortcuts="Left">
+                    <a href="flip.html" class="nav-chapters previous" title="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
-                
-                    <a href="box.html" class="nav-chapters next" title="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
-                    </a>
                 
             </nav>
 

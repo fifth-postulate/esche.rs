@@ -79,7 +79,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li class="affix"><a href="title.html">Title</a></li><li class="affix"><a href="motivation.html">Motivation</a></li><li class="affix"><a href="grid.html">Grid method</a></li><li class="affix"><a href="box.html">Box</a></li><li><a href="turn.html"><strong aria-hidden="true">1.</strong> Turn</a></li><li><a href="flip.html"><strong aria-hidden="true">2.</strong> Flip</a></li></ol>
+            <ol class="chapter"><li class="affix"><a href="title.html">Title</a></li><li class="affix"><a href="motivation.html">Motivation</a></li><li class="affix"><a href="grid.html">Grid method</a></li><li class="affix"><a href="box.html">Box</a></li><li><a href="turn.html"><strong aria-hidden="true">1.</strong> Turn</a></li><li><a href="flip.html"><strong aria-hidden="true">2.</strong> Flip</a></li><li><a href="picture.html"><strong aria-hidden="true">3.</strong> Picture</a></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -347,6 +347,23 @@ the following command</p>
 <pre><code class="language-shell">cargo run --bin geometry
 </code></pre>
 <p>and find a flipped letter d in <code>output.svg</code>.</p>
+<a class="header" href="print.html#picture" id="picture"><h1>Picture</h1></a>
+<p>In the last chapter we looked at the interesting signature of the <code>turn</code>
+function. We will repeated it here.</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+pub fn turn&lt;Picture&gt;(picture: Rc&lt;Picture&gt;) -&gt; Rc&lt;impl Fn(&amp;Bx) -&gt; Rendering&gt;
+where Picture: Fn(&amp;Bx) -&gt; Rendering 
+#}</code></pre></pre>
+<p>There is a lot going on. There is even a piece of information missing. I.e.
+<code>Rendering</code> is a type alias.</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+pub type Rendering = Vec&lt;(Shape, Style)&gt;;
+#}</code></pre></pre>
+<p>Let's take some time to think and see what this signature is all about.</p>
 
                     </main>
 

@@ -6,4 +6,5 @@
 [Box](./box.md)
 * [Turn](./turn.md)
 * [Flip](./flip.md)
+* [Picture](./picture.md)
 [Documentation](./doc/eschers/index.html)
