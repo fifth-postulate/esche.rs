@@ -142,6 +142,14 @@ where Picture: Fn(&amp;Bx) -&gt; Rendering
 pub type Rendering = Vec&lt;(Shape, Style)&gt;;
 #}</code></pre></pre>
 <p>Let's take some time to think and see what this signature is all about.</p>
+<a class="header" href="picture.html#shape--style" id="shape--style"><h2>Shape &amp; Style</h2></a>
+<p><code>Shape</code> are primitive drawing instructions. Various sort of lines and
+instructions where to place them. If you are really curious you can take a look
+at the <a href="http://localhost:3000/doc/eschers/shape/enum.Shape.html">documentation</a>.</p>
+<p>The basic shapes are used to provide more abstract drawing instructions such as
+letters or grids.</p>
+<p><a href="http://localhost:3000/doc/eschers/style/struct.Style.html"><code>Style</code></a> instructs
+an artist with which style to draw the shapes.</p>
 
                     </main>
 

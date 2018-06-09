@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["canvas","The canvas that we will draw on"],["fitting","Creating a `Picture` from `Shape`s"],["picture","Descriptions of scenes"],["rendering","Turning a `Rendering` into an SVG."],["shape","Primitives that can be drawn"],["style","Styling of Pictures"],["vector","2D vectors and associated functions"]]});

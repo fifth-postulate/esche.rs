@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["Shape","Basic shapes that can be drawn"]],"mod":[["escher","Escher's famous fish."],["grid","An assortment of grids"],["letter","An assortment of letters."]],"struct":[["ControlPoint","Control points of a bezier path"]]});

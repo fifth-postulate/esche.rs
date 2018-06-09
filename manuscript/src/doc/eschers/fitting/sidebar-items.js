@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["create_picture","Creates a `Picture`, i.e. a `Fn(canvas::Box) -> Vec<(Shape, Style)>`, from `Vec<Shape>`."]]});
