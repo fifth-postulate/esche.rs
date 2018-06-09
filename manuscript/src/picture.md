@@ -25,4 +25,7 @@ The basic shapes are used to provide more abstract drawing instructions such as
 letters or grids.
 
 [`Style`](http://localhost:3000/doc/eschers/style/struct.Style.html) instructs
-an artist with which style to draw the shapes. 
+an artist with which style to draw the shapes.
+
+We will treat `Shape` and `Style`, and their derivatives, as black boxes. We
+will use them as is, without further inspection. 
