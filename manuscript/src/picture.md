@@ -28,4 +28,13 @@ letters or grids.
 an artist with which style to draw the shapes.
 
 We will treat `Shape` and `Style`, and their derivatives, as black boxes. We
-will use them as is, without further inspection. 
+will use them as is, without further inspection.
+
+## Rendering
+Single stroke art is a thing, but in general art is made with more elements. A
+`Rendering` is just that a sequences of shapes drawn with a certain style.
+
+`Rendering` is a 
+[_type alias_](https://doc.rust-lang.org/book/second-edition/ch19-04-advanced-types.html#type-aliases-create-type-synonyms).
+It offers a nice shorthand for a type expression, but is otherwise
+interchangeable with the long form.
