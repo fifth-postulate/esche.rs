@@ -38,3 +38,11 @@ Single stroke art is a thing, but in general art is made with more elements. A
 [_type alias_](https://doc.rust-lang.org/book/second-edition/ch19-04-advanced-types.html#type-aliases-create-type-synonyms).
 It offers a nice shorthand for a type expression, but is otherwise
 interchangeable with the long form.
+
+## Picture
+Let's take a look at an other alias, this time defined in the signature of the
+`turn` function. For reference we repeat the definition below.
+
+```rust
+Fn(&Bx) -> Rendering
+```
