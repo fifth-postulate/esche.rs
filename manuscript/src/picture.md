@@ -44,5 +44,8 @@ Let's take a look at an other alias, this time defined in the signature of the
 `turn` function. For reference we repeat the definition below.
 
 ```rust
-Fn(&Bx) -> Rendering
+where Picture: Fn(&Bx) -> Rendering
 ```
+
+A picture is a function that borrows a box, the one defined a few chapters back,
+and returns a `Rendering`, i.e. a sequence of shapes to draw.

@@ -387,8 +387,10 @@ interchangeable with the long form.</p>
 <pre><pre class="playpen"><code class="language-rust">
 # #![allow(unused_variables)]
 #fn main() {
-Fn(&amp;Bx) -&gt; Rendering
+where Picture: Fn(&amp;Bx) -&gt; Rendering
 #}</code></pre></pre>
+<p>A picture is a function that borrows a box, the one defined a few chapters back,
+and returns a <code>Rendering</code>, i.e. a sequence of shapes to draw.</p>
 
                     </main>
 
