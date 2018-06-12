@@ -49,3 +49,6 @@ where Picture: Fn(&Bx) -> Rendering
 
 A picture is a function that borrows a box, the one defined a few chapters back,
 and returns a `Rendering`, i.e. a sequence of shapes to draw.
+
+This is the most important abstraction that we will introduce. All following
+types are in place to make these abstraction usable and safe to use.
