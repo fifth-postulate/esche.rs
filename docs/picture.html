@@ -176,7 +176,23 @@ where Picture: Fn(&amp;Bx) -&gt; Rendering
 <p>A picture is a function that borrows a box, the one defined a few chapters back,
 and returns a <code>Rendering</code>, i.e. a sequence of shapes to draw.</p>
 <p>This is the most important abstraction that we will introduce. All following
-types are in place to make these abstraction usable and safe to use.</p>
+types are in place to make these abstraction usable and safe.</p>
+<a class="header" href="picture.html#rc" id="rc"><h2>Rc</h2></a>
+<p>It you take a look at the type signature of <code>turn</code> you will notice that the
+<code>Picture</code> is wrapped in a <code>Rc</code>. It is a</p>
+<blockquote>
+<p>A single-threaded reference-counting pointer.</p>
+</blockquote>
+<p>As can be seen from the <a href="https://doc.rust-lang.org/std/rc/struct.Rc.html"><code>Rc</code> documentation</a>.</p>
+<p>The reason we need a reference counting pointer to the <code>Picture</code> here is
+two-fold.</p>
+<a class="header" href="picture.html#picture-can-not-be-owned" id="picture-can-not-be-owned"><h3>Picture can not be owned</h3></a>
+<p>The first reason we need an reference counting pointer to the <code>Picture</code> is that
+we might want to reuse the picture. If you look back at Eschers square limit,
+you could see a lot of repetition in the image. As if a stamp is used to create
+the collage of fishes.</p>
+<p>This means that we can not take owner ship of <code>Picture</code>, because otherwise other
+parts of our program can not reuse it.</p>
 
                     </main>
 

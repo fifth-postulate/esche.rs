@@ -57,4 +57,26 @@ A picture is a function that borrows a box, the one defined a few chapters back,
 and returns a `Rendering`, i.e. a sequence of shapes to draw.
 
 This is the most important abstraction that we will introduce. All following
-types are in place to make these abstraction usable and safe to use.
+types are in place to make these abstraction usable and safe.
+
+## Rc
+It you take a look at the type signature of `turn` you will notice that the
+`Picture` is wrapped in a `Rc`. It is a
+
+> A single-threaded reference-counting pointer. 
+
+As can be seen from the [`Rc` documentation](https://doc.rust-lang.org/std/rc/struct.Rc.html). 
+
+The reason we need a reference counting pointer to the `Picture` here is
+two-fold.
+
+### Picture can not be owned 
+The first reason we need an reference counting pointer to the `Picture` is that
+we might want to reuse the picture. If you look back at Eschers square limit,
+you could see a lot of repetition in the image. As if a stamp is used to create
+the collage of fishes.
+
+This means that we can not take owner ship of `Picture`, because otherwise other
+parts of our program can not reuse it.
+
+
