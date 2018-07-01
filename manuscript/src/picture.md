@@ -32,12 +32,18 @@ will use them as is, without further inspection.
 
 ## Rendering
 Single stroke art is a thing, but in general art is made with more elements. A
-`Rendering` is just that a sequences of shapes drawn with a certain style.
+`Rendering` is just that, a sequences of shapes drawn with a certain style.
 
 `Rendering` is a 
 [_type alias_](https://doc.rust-lang.org/book/second-edition/ch19-04-advanced-types.html#type-aliases-create-type-synonyms).
 It offers a nice shorthand for a type expression, but is otherwise
 interchangeable with the long form.
+
+Here is the definition
+
+```rust
+pub type Rendering = Vec<(Shape, Style)>;
+```
 
 ## Picture
 Let's take a look at an other alias, this time defined in the signature of the
