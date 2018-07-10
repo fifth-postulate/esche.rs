@@ -79,4 +79,19 @@ the collage of fishes.
 This means that we can not take owner ship of `Picture`, because otherwise other
 parts of our program can not reuse it.
 
+### Picture can not be referenced
+Usually a possible solution to not owning data is to take a reference.
+Unfortunately, that is not an option here. It is a bit involved, but it has to
+do with `lifetimes`.
 
+TODO explain why lifetimes are in the way.
+
+### Rc to the rescue
+Luckily, with a reference counting pointer, these problems go away. We do trade
+something for it. We can't use our program in a multi-threaded environment. We
+could if we really wanted, but for this workshop we are not really interested in
+multi-threading.
+
+The second is speed. Reference counting happens at run-time. This has a little
+overhead that we need to pay each time we run the program. This isn't a concern
+for us as well.
