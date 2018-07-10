@@ -95,3 +95,8 @@ multi-threading.
 The second is speed. Reference counting happens at run-time. This has a little
 overhead that we need to pay each time we run the program. This isn't a concern
 for us as well.
+
+## Blackbox
+We have looked into the reason why `Picture` is defined as it is. With that
+knowledge under our belt, we continue with our goal. Recreating Eschers square
+limit.
