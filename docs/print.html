@@ -79,7 +79,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li class="affix"><a href="title.html">Title</a></li><li class="affix"><a href="motivation.html">Motivation</a></li><li class="affix"><a href="grid.html">Grid method</a></li><li class="affix"><a href="box.html">Box</a></li><li class="affix"><a href="start.html">The letter d</a></li><li><a href="turn.html"><strong aria-hidden="true">1.</strong> Turn</a></li><li><a href="flip.html"><strong aria-hidden="true">2.</strong> Flip</a></li><li><a href="picture.html"><strong aria-hidden="true">3.</strong> Picture</a></li><li><a href="toss.html"><strong aria-hidden="true">4.</strong> Toss</a></li><li><a href="above.html"><strong aria-hidden="true">5.</strong> Above</a></li></ol>
+            <ol class="chapter"><li class="affix"><a href="title.html">Title</a></li><li class="affix"><a href="motivation.html">Motivation</a></li><li class="affix"><a href="grid.html">Grid method</a></li><li class="affix"><a href="box.html">Box</a></li><li class="affix"><a href="start.html">The letter d</a></li><li><a href="turn.html"><strong aria-hidden="true">1.</strong> Turn</a></li><li><a href="flip.html"><strong aria-hidden="true">2.</strong> Flip</a></li><li><a href="picture.html"><strong aria-hidden="true">3.</strong> Picture</a></li><li><a href="toss.html"><strong aria-hidden="true">4.</strong> Toss</a></li><li><a href="above.html"><strong aria-hidden="true">5.</strong> Above</a></li><li><a href="beside.html"><strong aria-hidden="true">6.</strong> Beside</a></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -495,6 +495,22 @@ I.e. the top picture should occupy \(\frac{m}{m+n}\) of the original box.</p>
 <code>geometry.rs</code>. For above we need to provide two pictures. Remember that we can
 clone a picture to use it more than once. Find the correct combination of
 primitives to recreate the picture at the start of this chapter.</p>
+<a class="header" href="print.html#beside" id="beside"><h1>Beside</h1></a>
+<p><img src="image/d_beside_b.svg" alt="The letter d & b beside each other" width="400px" height="400px"></p>
+<p>What to do now is very similar what you did in the previous chapter. Instead of
+stacking pictures horizontally, you are going to &quot;stack&quot; them vertically.</p>
+<div class="reference">
+  <img src="image/box.svg" alt="The standard box for reference" width="400px" height="400px">
+  <img src="image/box_beside_box.svg" alt="Two boxes beside each other" width="400px" height="400px">
+</div>
+<a class="header" href="print.html#implement-4" id="implement-4"><h2>Implement</h2></a>
+<p>Copy and pasting and changing horizontally in vertically will bring this
+chapters goal within reach. And there is nothing wrong with that.</p>
+<p>But if you want to challenge yourself, you could also think of using the tools
+already present. By cleverly combining turns and above one can get beside.</p>
+<p>Either way, once you created beside, make sure to test it out. And say goodbye
+to <code>src/canvas/mod.rs</code>, you won't need to touch it again. All the primitive
+operations are in place.</p>
 
                     </main>
 

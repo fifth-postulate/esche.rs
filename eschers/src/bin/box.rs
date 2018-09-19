@@ -12,7 +12,7 @@ fn main() {
         Vector::new(250f64, 0f64),
         Vector::new(0f64, 250f64)
     );
-    let (_, transformed) = split_box_horizontally(0.3f64, &bx);
+    let (_, transformed) = split_box_vertically(0.3f64, &bx);
     let document = box_to_svg((400f64, 400f64), &transformed);
     svg::save("output.svg", &document).unwrap();
 }

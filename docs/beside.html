@@ -2,12 +2,13 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Title - Esche.rs</title>
+        <title>Beside - Esche.rs</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="A book accompanying a workshop to recreate Escher's square limit.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
+        <base href="">
 
         <link rel="stylesheet" href="book.css">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
@@ -78,7 +79,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li class="affix"><a href="title.html" class="active">Title</a></li><li class="affix"><a href="motivation.html">Motivation</a></li><li class="affix"><a href="grid.html">Grid method</a></li><li class="affix"><a href="box.html">Box</a></li><li class="affix"><a href="start.html">The letter d</a></li><li><a href="turn.html"><strong aria-hidden="true">1.</strong> Turn</a></li><li><a href="flip.html"><strong aria-hidden="true">2.</strong> Flip</a></li><li><a href="picture.html"><strong aria-hidden="true">3.</strong> Picture</a></li><li><a href="toss.html"><strong aria-hidden="true">4.</strong> Toss</a></li><li><a href="above.html"><strong aria-hidden="true">5.</strong> Above</a></li><li><a href="beside.html"><strong aria-hidden="true">6.</strong> Beside</a></li></ol>
+            <ol class="chapter"><li class="affix"><a href="title.html">Title</a></li><li class="affix"><a href="motivation.html">Motivation</a></li><li class="affix"><a href="grid.html">Grid method</a></li><li class="affix"><a href="box.html">Box</a></li><li class="affix"><a href="start.html">The letter d</a></li><li><a href="turn.html"><strong aria-hidden="true">1.</strong> Turn</a></li><li><a href="flip.html"><strong aria-hidden="true">2.</strong> Flip</a></li><li><a href="picture.html"><strong aria-hidden="true">3.</strong> Picture</a></li><li><a href="toss.html"><strong aria-hidden="true">4.</strong> Toss</a></li><li><a href="above.html"><strong aria-hidden="true">5.</strong> Above</a></li><li><a href="beside.html" class="active"><strong aria-hidden="true">6.</strong> Beside</a></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -124,20 +125,33 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="title.html#eschers" id="eschers"><h1>Esche.rs</h1></a>
-<a class="header" href="title.html#exploring-functional-geometry" id="exploring-functional-geometry"><h2>Exploring functional geometry</h2></a>
-<p><img src="https://uploads3.wikiart.org/images/m-c-escher/square-limit.jpg!Large.jpg" alt="Square Limit, Escher 1964" /></p>
+                        <a class="header" href="beside.html#beside" id="beside"><h1>Beside</h1></a>
+<p><img src="image/d_beside_b.svg" alt="The letter d & b beside each other" width="400px" height="400px"></p>
+<p>What to do now is very similar what you did in the previous chapter. Instead of
+stacking pictures horizontally, you are going to &quot;stack&quot; them vertically.</p>
+<div class="reference">
+  <img src="image/box.svg" alt="The standard box for reference" width="400px" height="400px">
+  <img src="image/box_beside_box.svg" alt="Two boxes beside each other" width="400px" height="400px">
+</div>
+<a class="header" href="beside.html#implement" id="implement"><h2>Implement</h2></a>
+<p>Copy and pasting and changing horizontally in vertically will bring this
+chapters goal within reach. And there is nothing wrong with that.</p>
+<p>But if you want to challenge yourself, you could also think of using the tools
+already present. By cleverly combining turns and above one can get beside.</p>
+<p>Either way, once you created beside, make sure to test it out. And say goodbye
+to <code>src/canvas/mod.rs</code>, you won't need to touch it again. All the primitive
+operations are in place.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-
-                        
-                            <a rel="next" href="motivation.html" class="mobile-nav-chapters next" title="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
+                            <a rel="prev" href="above.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
                             </a>
+                        
+
                         
 
                         <div style="clear: both"></div>
@@ -147,11 +161,11 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-
-                
-                    <a href="motivation.html" class="nav-chapters next" title="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
+                    <a href="above.html" class="nav-chapters previous" title="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
                     </a>
+                
+
                 
             </nav>
 

@@ -10,4 +10,5 @@
 * [Picture](./picture.md)
 * [Toss](./toss.md)
 * [Above](./above.md)
+* [Beside](./beside.md)
 [Documentation](./doc/eschers/index.html)
