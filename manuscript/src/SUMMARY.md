@@ -8,4 +8,5 @@
 * [Turn](./turn.md)
 * [Flip](./flip.md)
 * [Picture](./picture.md)
+* [Toss](./toss.md)
 [Documentation](./doc/eschers/index.html)

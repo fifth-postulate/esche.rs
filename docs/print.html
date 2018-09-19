@@ -79,7 +79,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li class="affix"><a href="title.html">Title</a></li><li class="affix"><a href="motivation.html">Motivation</a></li><li class="affix"><a href="grid.html">Grid method</a></li><li class="affix"><a href="box.html">Box</a></li><li class="affix"><a href="start.html">The letter d</a></li><li><a href="turn.html"><strong aria-hidden="true">1.</strong> Turn</a></li><li><a href="flip.html"><strong aria-hidden="true">2.</strong> Flip</a></li><li><a href="picture.html"><strong aria-hidden="true">3.</strong> Picture</a></li></ol>
+            <ol class="chapter"><li class="affix"><a href="title.html">Title</a></li><li class="affix"><a href="motivation.html">Motivation</a></li><li class="affix"><a href="grid.html">Grid method</a></li><li class="affix"><a href="box.html">Box</a></li><li class="affix"><a href="start.html">The letter d</a></li><li><a href="turn.html"><strong aria-hidden="true">1.</strong> Turn</a></li><li><a href="flip.html"><strong aria-hidden="true">2.</strong> Flip</a></li><li><a href="picture.html"><strong aria-hidden="true">3.</strong> Picture</a></li><li><a href="toss.html"><strong aria-hidden="true">4.</strong> Toss</a></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -322,7 +322,7 @@ svg::save(&quot;output.svg&quot;, &amp;document).unwrap();
 #}</code></pre></pre>
 <p>The line to look out for is the <code>let picture</code> line. Here we call the function
 <code>turn</code> on our source shape. This function is found in the <code>picture</code> module. The
-<code>turn</code> function is reproduced here.</p>
+<code>turn</code> function is reproduced here. It can be found in <code>src/picture/mod.rs</code>.</p>
 <pre><pre class="playpen"><code class="language-rust">
 # #![allow(unused_variables)]
 #fn main() {
@@ -443,6 +443,32 @@ for us as well.</p>
 <p>We have looked into the reason why <code>Picture</code> is defined as it is. With that
 knowledge under our belt, we continue with our goal. Recreating Eschers square
 limit.</p>
+<a class="header" href="print.html#toss" id="toss"><h1>Toss</h1></a>
+<p><img src="image/d_tossed.svg" alt="The letter d tossed" width="400px" height="400px"></p>
+<p>With the information about <code>Picture</code> in our mind, we toss ourselves on our new
+goal. We want to toss our letter d in the air. By now our method of operation is
+familiar. Define a tossed box and use it to define our <code>toss</code> function.</p>
+<div class="reference">
+  <img src="image/box.svg" alt="The standard box for reference" width="400px" height="400px">
+  <img src="image/box_tossed.svg" alt="The standard box tossed" width="400px" height="400px">
+</div>
+<p>Look at the reference box and the tossed box. Whoops it draws outside of the
+boundary! Is that even allowed?</p>
+<p>Let's try to figure out the vectors for our tossed box. The new <code>a</code> vector is right
+between the the original <code>b</code> and <code>c</code> vectors. I.e. \(a' = a+\frac{b + c}{2}\).</p>
+<p>the new <code>b</code> vector is halve as large as the vector addition of <code>b</code> + <code>c</code>. I.e.
+\(b' = \frac{b + c}{2}\).</p>
+<p>The new <code>c</code> is halve as large as the vector from <code>b</code> that reaches <code>c</code>. I.e.
+\(c' = \frac{c - b}{2}\).</p>
+<a class="header" href="print.html#implement-2" id="implement-2"><h2>Implement</h2></a>
+<p>Having found the relations between the original box defining vectors and the
+tossed box its defining vector, we can proceed to implement it.</p>
+<p>Again in <code>src/canvas/mod.rs</code> you find a default implementation of <code>tossed_box</code>.
+Adopt it to reflect an actual tossed box.</p>
+<p>Then find the <code>toss</code> function in <code>src/picture/mod.rs</code> and use the freshly
+defined <code>tossed_box</code> function in its body.</p>
+<p>Next don't forget to change <code>geometry</code> binary to use the new <code>toss</code> function,
+execute it and marvel at the tossed letter d in <code>output.svg</code>.</p>
 
                     </main>
 

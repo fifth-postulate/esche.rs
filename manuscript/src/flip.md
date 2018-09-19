@@ -53,7 +53,7 @@ svg::save("output.svg", &document).unwrap();
 
 The line to look out for is the `let picture` line. Here we call the function
 `turn` on our source shape. This function is found in the `picture` module. The
-`turn` function is reproduced here.
+`turn` function is reproduced here. It can be found in `src/picture/mod.rs`.
 
 ```rust
 pub fn turn<Picture>(picture: Rc<Picture>) -> Rc<impl Fn(&Bx) -> Rendering>

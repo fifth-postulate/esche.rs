@@ -12,7 +12,7 @@ fn main() {
         Vector::new(250f64, 0f64),
         Vector::new(0f64, 250f64)
     );
-    let transformed = flip_box(&bx);
+    let transformed = toss_box(&bx);
     let document = box_to_svg((400f64, 400f64), &transformed);
     svg::save("output.svg", &document).unwrap();
 }
