@@ -16,7 +16,7 @@ fn main() {
     );
     let shapes = letter::d();
     let source = create_picture(shapes);
-    let picture = toss(source);
+    let picture = above(source.clone(), flip(source));
     let document = to_svg((400f64, 400f64), &picture(&bx));
     svg::save("output.svg", &document).unwrap();
 }

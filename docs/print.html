@@ -79,7 +79,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li class="affix"><a href="title.html">Title</a></li><li class="affix"><a href="motivation.html">Motivation</a></li><li class="affix"><a href="grid.html">Grid method</a></li><li class="affix"><a href="box.html">Box</a></li><li class="affix"><a href="start.html">The letter d</a></li><li><a href="turn.html"><strong aria-hidden="true">1.</strong> Turn</a></li><li><a href="flip.html"><strong aria-hidden="true">2.</strong> Flip</a></li><li><a href="picture.html"><strong aria-hidden="true">3.</strong> Picture</a></li><li><a href="toss.html"><strong aria-hidden="true">4.</strong> Toss</a></li></ol>
+            <ol class="chapter"><li class="affix"><a href="title.html">Title</a></li><li class="affix"><a href="motivation.html">Motivation</a></li><li class="affix"><a href="grid.html">Grid method</a></li><li class="affix"><a href="box.html">Box</a></li><li class="affix"><a href="start.html">The letter d</a></li><li><a href="turn.html"><strong aria-hidden="true">1.</strong> Turn</a></li><li><a href="flip.html"><strong aria-hidden="true">2.</strong> Flip</a></li><li><a href="picture.html"><strong aria-hidden="true">3.</strong> Picture</a></li><li><a href="toss.html"><strong aria-hidden="true">4.</strong> Toss</a></li><li><a href="above.html"><strong aria-hidden="true">5.</strong> Above</a></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -469,6 +469,32 @@ Adopt it to reflect an actual tossed box.</p>
 defined <code>tossed_box</code> function in its body.</p>
 <p>Next don't forget to change <code>geometry</code> binary to use the new <code>toss</code> function,
 execute it and marvel at the tossed letter d in <code>output.svg</code>.</p>
+<a class="header" href="print.html#above" id="above"><h1>Above</h1></a>
+<p><img src="image/d_above_b.svg" alt="The letter d & b above each other" width="400px" height="400px"></p>
+<p>The transformation that we are tackling next is to place one picture above an
+other. although in our example both pictures evenly divide the box between them,
+we are going to create a more versatile primitive and than use it to create the
+<code>above</code> function.</p>
+<div class="reference">
+  <img src="image/box.svg" alt="The standard box for reference" width="400px" height="400px">
+  <img src="image/box_above_box.svg" alt="Two boxes above each other" width="400px" height="400px">
+</div>
+<p>We are going to create a <code>split_box_horizontally</code> that takes a factor and a box
+and splits the box in two. So it return a pair of boxes. The factor determines
+how much the top box gets to occupy of the original box. The bottom box then
+will occupy <code>1.0 - factor</code>.</p>
+<a class="header" href="print.html#implement-3" id="implement-3"><h2>Implement</h2></a>
+<p>Head over to <code>src/canvas/mod.rs</code> and implement <code>split_box_horizontally</code>. It
+helped my to introduce helper functions <code>scale_box_horizontally</code> and
+<code>move_box_horizontally</code>.</p>
+<p>With this primitive open <code>src/picture/mod.rs</code> and define function <code>above_ratio</code>.
+This function accepts two pictures and two non-negative integers <code>m</code> and <code>n</code>. These integers are
+used to calculate how much of the pictures get to occupy of the original box.
+I.e. the top picture should occupy \(\frac{m}{m+n}\) of the original box.</p>
+<p>Go on and define <code>above</code> in terms of <code>above_ratio</code>. Then use it in
+<code>geometry.rs</code>. For above we need to provide two pictures. Remember that we can
+clone a picture to use it more than once. Find the correct combination of
+primitives to recreate the picture at the start of this chapter.</p>
 
                     </main>
 
