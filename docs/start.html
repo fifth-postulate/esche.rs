@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Box - Esche.rs</title>
+        <title>The letter d - Esche.rs</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="A book accompanying a workshop to recreate Escher's square limit.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -79,7 +79,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li class="affix"><a href="title.html">Title</a></li><li class="affix"><a href="motivation.html">Motivation</a></li><li class="affix"><a href="grid.html">Grid method</a></li><li class="affix"><a href="box.html" class="active">Box</a></li><li class="affix"><a href="start.html">The letter d</a></li><li><a href="turn.html"><strong aria-hidden="true">1.</strong> Turn</a></li><li><a href="flip.html"><strong aria-hidden="true">2.</strong> Flip</a></li><li><a href="picture.html"><strong aria-hidden="true">3.</strong> Picture</a></li></ol>
+            <ol class="chapter"><li class="affix"><a href="title.html">Title</a></li><li class="affix"><a href="motivation.html">Motivation</a></li><li class="affix"><a href="grid.html">Grid method</a></li><li class="affix"><a href="box.html">Box</a></li><li class="affix"><a href="start.html" class="active">The letter d</a></li><li><a href="turn.html"><strong aria-hidden="true">1.</strong> Turn</a></li><li><a href="flip.html"><strong aria-hidden="true">2.</strong> Flip</a></li><li><a href="picture.html"><strong aria-hidden="true">3.</strong> Picture</a></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -125,45 +125,30 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="box.html#box" id="box"><h1>Box</h1></a>
-<p>We learned about <em>the grid method</em>. It allows us to instruct an artist that
-knows how to copy a picture from a grid, how we want the picture copied. This can
-be achieved by controlling the grid the artist will copy the picture into. The
-grid method relies on a box. So we better should get to know our boxes.</p>
-<p><img src="image/box.svg" alt="The standard box for reference" width="400px" height="400px"></p>
-<p>Above you find a pictorial representation of a <em>box</em>. It is defined by three
-vectors, <code>a</code>, which is red in the picture, <code>b</code> which is orange in the picture
-and <code>c</code> which is purple in the picture.</p>
-<pre><pre class="playpen"><code class="language-rust">
-# #![allow(unused_variables)]
-#fn main() {
-/// A Box represents the area and position that we will draw in.
-#[derive(Debug, PartialEq, Clone, Copy)]
-pub struct Box {
-    /// Determines the origin of the drawing area, used to position the box.
-    pub a: Vector&lt;f64&gt;,
-    /// Determines the x axis of the box.
-    pub b: Vector&lt;f64&gt;,
-    /// Determines the y axis of the box.
-    pub c: Vector&lt;f64&gt;,
-}
-#}</code></pre></pre>
-<p>The above <code>struct</code> is a literal conversion from the picture. If you are
-wondering what these <code>Vector</code>s are, take a look at the
-<a href="doc/eschers/index.html">documentation</a>.</p>
+                        <a class="header" href="start.html#the-letter-d" id="the-letter-d"><h1>The letter d</h1></a>
+<p>You need to walk before you run. So instead of starting with drawing fish, we
+will take a look at the letter d.</p>
+<p><img src="image/d.svg" alt="The letter d" width="400px" height="400px"></p>
+<p>The letter d is a recognizable shape that does not have a lot of <em>symmetries</em>.
+I.e. If you rotate it or flip it, it doesn't look lite itself anymore. This
+isn't true for the letter H for example.</p>
+<p>By focusing on the letter d and transforming it, we can figure out how to change
+our box. This is hard work, but very rewarding.</p>
+<p>If you follow along and implement the functions laid out by the next chapters,
+you are well on your way to reproducing Eschers Square Limit.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="grid.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="box.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="start.html" class="mobile-nav-chapters next" title="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="turn.html" class="mobile-nav-chapters next" title="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -175,13 +160,13 @@ wondering what these <code>Vector</code>s are, take a look at the
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="grid.html" class="nav-chapters previous" title="Previous chapter" aria-keyshortcuts="Left">
+                    <a href="box.html" class="nav-chapters previous" title="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a href="start.html" class="nav-chapters next" title="Next chapter" aria-keyshortcuts="Right">
+                    <a href="turn.html" class="nav-chapters next" title="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 

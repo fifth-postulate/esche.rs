@@ -79,7 +79,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li class="affix"><a href="title.html">Title</a></li><li class="affix"><a href="motivation.html">Motivation</a></li><li class="affix"><a href="grid.html">Grid method</a></li><li class="affix"><a href="box.html">Box</a></li><li><a href="turn.html"><strong aria-hidden="true">1.</strong> Turn</a></li><li><a href="flip.html"><strong aria-hidden="true">2.</strong> Flip</a></li><li><a href="picture.html"><strong aria-hidden="true">3.</strong> Picture</a></li></ol>
+            <ol class="chapter"><li class="affix"><a href="title.html">Title</a></li><li class="affix"><a href="motivation.html">Motivation</a></li><li class="affix"><a href="grid.html">Grid method</a></li><li class="affix"><a href="box.html">Box</a></li><li class="affix"><a href="start.html">The letter d</a></li><li><a href="turn.html"><strong aria-hidden="true">1.</strong> Turn</a></li><li><a href="flip.html"><strong aria-hidden="true">2.</strong> Flip</a></li><li><a href="picture.html"><strong aria-hidden="true">3.</strong> Picture</a></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -234,6 +234,17 @@ pub struct Box {
 <p>The above <code>struct</code> is a literal conversion from the picture. If you are
 wondering what these <code>Vector</code>s are, take a look at the
 <a href="doc/eschers/index.html">documentation</a>.</p>
+<a class="header" href="print.html#the-letter-d" id="the-letter-d"><h1>The letter d</h1></a>
+<p>You need to walk before you run. So instead of starting with drawing fish, we
+will take a look at the letter d.</p>
+<p><img src="image/d.svg" alt="The letter d" width="400px" height="400px"></p>
+<p>The letter d is a recognizable shape that does not have a lot of <em>symmetries</em>.
+I.e. If you rotate it or flip it, it doesn't look lite itself anymore. This
+isn't true for the letter H for example.</p>
+<p>By focusing on the letter d and transforming it, we can figure out how to change
+our box. This is hard work, but very rewarding.</p>
+<p>If you follow along and implement the functions laid out by the next chapters,
+you are well on your way to reproducing Eschers Square Limit.</p>
 <a class="header" href="print.html#turn" id="turn"><h1>Turn</h1></a>
 <p><img src="image/d_turned.svg" alt="The letter d turned" width="400px" height="400px"></p>
 <p>Our goal is to turn our letter through ninety degrees. As explained in the
