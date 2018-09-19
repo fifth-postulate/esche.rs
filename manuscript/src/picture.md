@@ -18,7 +18,7 @@ Let's take some time to think and see what this signature is all about.
 
 ## Shape & Style
 `Shape` are primitive drawing instructions. Various sort of lines and
-instructions where to place them. If you are really curious you can take a look
+instructions and where to place them. If you are really curious you can take a look
 at the [documentation](http://localhost:3000/doc/eschers/shape/enum.Shape.html).
 
 The basic shapes are used to provide more abstract drawing instructions such as
@@ -76,7 +76,7 @@ we might want to reuse the picture. If you look back at Eschers square limit,
 you could see a lot of repetition in the image. As if a stamp is used to create
 the collage of fishes.
 
-This means that we can not take owner ship of `Picture`, because otherwise other
+This means that we can not take ownership of `Picture`, because otherwise other
 parts of our program can not reuse it.
 
 ### Picture can not be referenced

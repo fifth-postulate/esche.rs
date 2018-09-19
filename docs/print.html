@@ -377,7 +377,7 @@ pub type Rendering = Vec&lt;(Shape, Style)&gt;;
 <p>Let's take some time to think and see what this signature is all about.</p>
 <a class="header" href="print.html#shape--style" id="shape--style"><h2>Shape &amp; Style</h2></a>
 <p><code>Shape</code> are primitive drawing instructions. Various sort of lines and
-instructions where to place them. If you are really curious you can take a look
+instructions and where to place them. If you are really curious you can take a look
 at the <a href="http://localhost:3000/doc/eschers/shape/enum.Shape.html">documentation</a>.</p>
 <p>The basic shapes are used to provide more abstract drawing instructions such as
 letters or grids.</p>
@@ -424,7 +424,7 @@ two-fold.</p>
 we might want to reuse the picture. If you look back at Eschers square limit,
 you could see a lot of repetition in the image. As if a stamp is used to create
 the collage of fishes.</p>
-<p>This means that we can not take owner ship of <code>Picture</code>, because otherwise other
+<p>This means that we can not take ownership of <code>Picture</code>, because otherwise other
 parts of our program can not reuse it.</p>
 <a class="header" href="print.html#picture-can-not-be-referenced" id="picture-can-not-be-referenced"><h3>Picture can not be referenced</h3></a>
 <p>Usually a possible solution to not owning data is to take a reference.
