@@ -8,7 +8,9 @@ in turn was based on the 1982 classic paper [functional geometry][funcgeo], or
 at least the revision from 2002. 
 
 ## Summary
-Be creating good [abstractions][abstraction] and relying on [function composition][wikipedia:function_composition] one is able to succinctly express pictures, like Eschers [Square Limit][square_limit].
+Be creating good [abstractions][abstraction] and relying on 
+[function composition][wikipedia:function_composition] one is able to succinctly
+express pictures, like Eschers [Square Limit][square_limit]. 
 
 ![Square Limit, Escher 1964](https://uploads3.wikiart.org/images/m-c-escher/square-limit.jpg!Large.jpg)
 
