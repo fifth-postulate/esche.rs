@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Beside - Esche.rs</title>
+        <title>over - Esche.rs</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="A book accompanying a workshop to recreate Escher's square limit.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -79,7 +79,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li class="affix"><a href="title.html">Title</a></li><li class="affix"><a href="motivation.html">Motivation</a></li><li class="affix"><a href="grid.html">Grid method</a></li><li class="affix"><a href="box.html">Box</a></li><li class="affix"><a href="start.html">The letter d</a></li><li><a href="turn.html"><strong aria-hidden="true">1.</strong> Turn</a></li><li><a href="flip.html"><strong aria-hidden="true">2.</strong> Flip</a></li><li><a href="picture.html"><strong aria-hidden="true">3.</strong> Picture</a></li><li><a href="toss.html"><strong aria-hidden="true">4.</strong> Toss</a></li><li><a href="above.html"><strong aria-hidden="true">5.</strong> Above</a></li><li><a href="beside.html" class="active"><strong aria-hidden="true">6.</strong> Beside</a></li><li><a href="quartet.html"><strong aria-hidden="true">7.</strong> quartet</a></li><li><a href="nonet.html"><strong aria-hidden="true">8.</strong> nonet</a></li><li><a href="over.html"><strong aria-hidden="true">9.</strong> over</a></li></ol>
+            <ol class="chapter"><li class="affix"><a href="title.html">Title</a></li><li class="affix"><a href="motivation.html">Motivation</a></li><li class="affix"><a href="grid.html">Grid method</a></li><li class="affix"><a href="box.html">Box</a></li><li class="affix"><a href="start.html">The letter d</a></li><li><a href="turn.html"><strong aria-hidden="true">1.</strong> Turn</a></li><li><a href="flip.html"><strong aria-hidden="true">2.</strong> Flip</a></li><li><a href="picture.html"><strong aria-hidden="true">3.</strong> Picture</a></li><li><a href="toss.html"><strong aria-hidden="true">4.</strong> Toss</a></li><li><a href="above.html"><strong aria-hidden="true">5.</strong> Above</a></li><li><a href="beside.html"><strong aria-hidden="true">6.</strong> Beside</a></li><li><a href="quartet.html"><strong aria-hidden="true">7.</strong> quartet</a></li><li><a href="nonet.html"><strong aria-hidden="true">8.</strong> nonet</a></li><li><a href="over.html" class="active"><strong aria-hidden="true">9.</strong> over</a></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -125,37 +125,38 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="beside.html#beside" id="beside"><h1>Beside</h1></a>
-<p><img src="image/d_beside_b.svg" alt="The letter d & b beside each other" width="400px" height="400px"></p>
-<p>What to do now is very similar what you did in the previous chapter. Instead of
-stacking pictures horizontally, you are going to &quot;stack&quot; them vertically.</p>
-<div class="reference">
-  <img src="image/box.svg" alt="The standard box for reference" width="400px" height="400px">
-  <img src="image/box_beside_box.svg" alt="Two boxes beside each other" width="400px" height="400px">
-</div>
-<a class="header" href="beside.html#implement" id="implement"><h2>Implement</h2></a>
-<p>Copy and pasting and changing horizontally in vertically will bring this
-chapters goal within reach. And there is nothing wrong with that.</p>
-<p>But if you want to challenge yourself, you could also think of using the tools
-already present. By cleverly combining turns and above one can get beside.</p>
-<p>Either way, once you created beside, make sure to test it out. And say goodbye
-to <code>src/canvas/mod.rs</code>, you won't need to touch it again. All the primitive
-operations are in place.</p>
+                        <a class="header" href="over.html#over" id="over"><h1>over</h1></a>
+<p><img src="image/d_over_b.svg" alt="The letter d over the tossed letter d" width="400px" height="400px"></p>
+<p>This is the last stop before we start drawing fishes. It feels a bit low-level
+in comparison to quartet and nonet, but we can still make it in the comfort of
+our <code>src/picture/mod.rs</code>.</p>
+<p>The image that we show is that of the letter d that is drawn over a tossed
+letter d. So our <code>over</code> function should take two pictures, draw one and draw the
+other in the same box.</p>
+<a class="header" href="over.html#implementation" id="implementation"><h2>Implementation.</h2></a>
+<p>Without giving the crux away, I would like to point out the definition of
+<code>Rendering</code> again.</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+pub type Rendering = Vec&lt;(Shape, Style)&gt;;
+#}</code></pre></pre>
+<p>It is nothing more than a vector of shape &amp; style pairs. You can probably use
+that to your advantage. If you have a hard time figuring out this primitive,
+make sure to discuss it with your neighbor.</p>
+<p>Once you get the solution show your work to your discussion partner by using it
+in the <code>geometry</code> binary.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="above.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="nonet.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
-                        
-                            <a rel="next" href="quartet.html" class="mobile-nav-chapters next" title="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
-                            </a>
                         
 
                         <div style="clear: both"></div>
@@ -165,15 +166,11 @@ operations are in place.</p>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="above.html" class="nav-chapters previous" title="Previous chapter" aria-keyshortcuts="Left">
+                    <a href="nonet.html" class="nav-chapters previous" title="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
-                
-                    <a href="quartet.html" class="nav-chapters next" title="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
-                    </a>
                 
             </nav>
 

@@ -79,7 +79,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li class="affix"><a href="title.html">Title</a></li><li class="affix"><a href="motivation.html">Motivation</a></li><li class="affix"><a href="grid.html">Grid method</a></li><li class="affix"><a href="box.html">Box</a></li><li class="affix"><a href="start.html">The letter d</a></li><li><a href="turn.html"><strong aria-hidden="true">1.</strong> Turn</a></li><li><a href="flip.html"><strong aria-hidden="true">2.</strong> Flip</a></li><li><a href="picture.html"><strong aria-hidden="true">3.</strong> Picture</a></li><li><a href="toss.html"><strong aria-hidden="true">4.</strong> Toss</a></li><li><a href="above.html"><strong aria-hidden="true">5.</strong> Above</a></li><li><a href="beside.html"><strong aria-hidden="true">6.</strong> Beside</a></li><li><a href="quartet.html"><strong aria-hidden="true">7.</strong> quartet</a></li><li><a href="nonet.html"><strong aria-hidden="true">8.</strong> nonet</a></li></ol>
+            <ol class="chapter"><li class="affix"><a href="title.html">Title</a></li><li class="affix"><a href="motivation.html">Motivation</a></li><li class="affix"><a href="grid.html">Grid method</a></li><li class="affix"><a href="box.html">Box</a></li><li class="affix"><a href="start.html">The letter d</a></li><li><a href="turn.html"><strong aria-hidden="true">1.</strong> Turn</a></li><li><a href="flip.html"><strong aria-hidden="true">2.</strong> Flip</a></li><li><a href="picture.html"><strong aria-hidden="true">3.</strong> Picture</a></li><li><a href="toss.html"><strong aria-hidden="true">4.</strong> Toss</a></li><li><a href="above.html"><strong aria-hidden="true">5.</strong> Above</a></li><li><a href="beside.html"><strong aria-hidden="true">6.</strong> Beside</a></li><li><a href="quartet.html"><strong aria-hidden="true">7.</strong> quartet</a></li><li><a href="nonet.html"><strong aria-hidden="true">8.</strong> nonet</a></li><li><a href="over.html"><strong aria-hidden="true">9.</strong> over</a></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -552,6 +552,27 @@ the same, but puts them side by side. With these primitives nonet is defined
 with a few lines of code.</p>
 <p>If you have defined the nonet, go ahead and appreciate your hard work. Use it in
 the <code>geometry</code> binary and enjoy the marvelous nonet.</p>
+<a class="header" href="print.html#over" id="over"><h1>over</h1></a>
+<p><img src="image/d_over_b.svg" alt="The letter d over the tossed letter d" width="400px" height="400px"></p>
+<p>This is the last stop before we start drawing fishes. It feels a bit low-level
+in comparison to quartet and nonet, but we can still make it in the comfort of
+our <code>src/picture/mod.rs</code>.</p>
+<p>The image that we show is that of the letter d that is drawn over a tossed
+letter d. So our <code>over</code> function should take two pictures, draw one and draw the
+other in the same box.</p>
+<a class="header" href="print.html#implementation-2" id="implementation-2"><h2>Implementation.</h2></a>
+<p>Without giving the crux away, I would like to point out the definition of
+<code>Rendering</code> again.</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+pub type Rendering = Vec&lt;(Shape, Style)&gt;;
+#}</code></pre></pre>
+<p>It is nothing more than a vector of shape &amp; style pairs. You can probably use
+that to your advantage. If you have a hard time figuring out this primitive,
+make sure to discuss it with your neighbor.</p>
+<p>Once you get the solution show your work to your discussion partner by using it
+in the <code>geometry</code> binary.</p>
 
                     </main>
 
