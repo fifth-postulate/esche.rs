@@ -79,7 +79,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li class="affix"><a href="title.html">Title</a></li><li class="affix"><a href="motivation.html">Motivation</a></li><li class="affix"><a href="grid.html">Grid method</a></li><li class="affix"><a href="box.html">Box</a></li><li class="affix"><a href="start.html">The letter d</a></li><li><a href="turn.html"><strong aria-hidden="true">1.</strong> Turn</a></li><li><a href="flip.html"><strong aria-hidden="true">2.</strong> Flip</a></li><li><a href="picture.html"><strong aria-hidden="true">3.</strong> Picture</a></li><li><a href="toss.html"><strong aria-hidden="true">4.</strong> Toss</a></li><li><a href="above.html"><strong aria-hidden="true">5.</strong> Above</a></li><li><a href="beside.html"><strong aria-hidden="true">6.</strong> Beside</a></li></ol>
+            <ol class="chapter"><li class="affix"><a href="title.html">Title</a></li><li class="affix"><a href="motivation.html">Motivation</a></li><li class="affix"><a href="grid.html">Grid method</a></li><li class="affix"><a href="box.html">Box</a></li><li class="affix"><a href="start.html">The letter d</a></li><li><a href="turn.html"><strong aria-hidden="true">1.</strong> Turn</a></li><li><a href="flip.html"><strong aria-hidden="true">2.</strong> Flip</a></li><li><a href="picture.html"><strong aria-hidden="true">3.</strong> Picture</a></li><li><a href="toss.html"><strong aria-hidden="true">4.</strong> Toss</a></li><li><a href="above.html"><strong aria-hidden="true">5.</strong> Above</a></li><li><a href="beside.html"><strong aria-hidden="true">6.</strong> Beside</a></li><li><a href="quartet.html"><strong aria-hidden="true">7.</strong> quartet</a></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -511,6 +511,33 @@ already present. By cleverly combining turns and above one can get beside.</p>
 <p>Either way, once you created beside, make sure to test it out. And say goodbye
 to <code>src/canvas/mod.rs</code>, you won't need to touch it again. All the primitive
 operations are in place.</p>
+<a class="header" href="print.html#quartet" id="quartet"><h1>quartet</h1></a>
+<p><img src="image/quartet_of_d.svg" alt="A quartet of transformed ds" width="400px" height="400px"></p>
+<p>A quartet of images, our next goal we will take on. As promised, we will not
+need to create a box this time. Instead, we our going to use the primitives we
+already created ourselves.</p>
+<p>Take some time and study the picture. How are the different parts related? Do
+any picture primitives spring to mind?</p>
+<a class="header" href="print.html#implementation" id="implementation"><h2>Implementation</h2></a>
+<p>Open <code>src/picture/mod.rs</code>. In it you will find the <code>quartet</code> function. Below is
+it's signature repeated.</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+pub fn quartet&lt;P, Q, R, S&gt;(nw: Rc&lt;P&gt;, ne: Rc&lt;Q&gt;, sw: Rc&lt;R&gt;, se: Rc&lt;S&gt;) -&gt; Rc&lt;impl Fn(&amp;Bx) -&gt; Rendering&gt;
+where P: Fn(&amp;Bx) -&gt; Rendering, Q: Fn(&amp;Bx) -&gt; Rendering, R: Fn(&amp;Bx) -&gt; Rendering, S: Fn(&amp;Bx) -&gt; Rendering```
+
+It is hard to look at. The reason for this is that Rust treats every closure as
+its own type. So even though the type parameters `P`, `Q`, `R` and `S` seem to
+be defined the same, at compile time they could be different.
+
+Either way, the implementation of the quartet should result in a `Rendering` of
+the arguments. They are called `nw`, `ne`, `sw` and `se` to help orient them in
+the quartet.
+
+When you find the right combination of picture primitives make sure to enjoy
+your hard-work and use it in the `geometry` binary.
+#}</code></pre></pre>
 
                     </main>
 

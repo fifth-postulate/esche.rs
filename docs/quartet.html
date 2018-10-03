@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Toss - Esche.rs</title>
+        <title>quartet - Esche.rs</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="A book accompanying a workshop to recreate Escher's square limit.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -79,7 +79,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li class="affix"><a href="title.html">Title</a></li><li class="affix"><a href="motivation.html">Motivation</a></li><li class="affix"><a href="grid.html">Grid method</a></li><li class="affix"><a href="box.html">Box</a></li><li class="affix"><a href="start.html">The letter d</a></li><li><a href="turn.html"><strong aria-hidden="true">1.</strong> Turn</a></li><li><a href="flip.html"><strong aria-hidden="true">2.</strong> Flip</a></li><li><a href="picture.html"><strong aria-hidden="true">3.</strong> Picture</a></li><li><a href="toss.html" class="active"><strong aria-hidden="true">4.</strong> Toss</a></li><li><a href="above.html"><strong aria-hidden="true">5.</strong> Above</a></li><li><a href="beside.html"><strong aria-hidden="true">6.</strong> Beside</a></li><li><a href="quartet.html"><strong aria-hidden="true">7.</strong> quartet</a></li></ol>
+            <ol class="chapter"><li class="affix"><a href="title.html">Title</a></li><li class="affix"><a href="motivation.html">Motivation</a></li><li class="affix"><a href="grid.html">Grid method</a></li><li class="affix"><a href="box.html">Box</a></li><li class="affix"><a href="start.html">The letter d</a></li><li><a href="turn.html"><strong aria-hidden="true">1.</strong> Turn</a></li><li><a href="flip.html"><strong aria-hidden="true">2.</strong> Flip</a></li><li><a href="picture.html"><strong aria-hidden="true">3.</strong> Picture</a></li><li><a href="toss.html"><strong aria-hidden="true">4.</strong> Toss</a></li><li><a href="above.html"><strong aria-hidden="true">5.</strong> Above</a></li><li><a href="beside.html"><strong aria-hidden="true">6.</strong> Beside</a></li><li><a href="quartet.html" class="active"><strong aria-hidden="true">7.</strong> quartet</a></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -125,47 +125,44 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="toss.html#toss" id="toss"><h1>Toss</h1></a>
-<p><img src="image/d_tossed.svg" alt="The letter d tossed" width="400px" height="400px"></p>
-<p>With the information about <code>Picture</code> in our mind, we toss ourselves on our new
-goal. We want to toss our letter d in the air. By now our method of operation is
-familiar. Define a tossed box and use it to define our <code>toss</code> function.</p>
-<div class="reference">
-  <img src="image/box.svg" alt="The standard box for reference" width="400px" height="400px">
-  <img src="image/box_tossed.svg" alt="The standard box tossed" width="400px" height="400px">
-</div>
-<p>Look at the reference box and the tossed box. Whoops, it draws outside of the
-boundary! Is that even allowed?</p>
-<p>Let's try to figure out the vectors for our tossed box. The new <code>a</code> vector is right
-between the the original <code>b</code> and <code>c</code> vectors. I.e. \(a' = a+\frac{b + c}{2}\).</p>
-<p>the new <code>b</code> vector is halve as large as the vector addition of <code>b</code> + <code>c</code>. I.e.
-\(b' = \frac{b + c}{2}\).</p>
-<p>The new <code>c</code> is halve as large as the vector from <code>b</code> that reaches <code>c</code>. I.e.
-\(c' = \frac{c - b}{2}\).</p>
-<a class="header" href="toss.html#implement" id="implement"><h2>Implement</h2></a>
-<p>Having found the relations between the original box defining vectors and the
-tossed box its defining vector, we can proceed to implement it.</p>
-<p>Again in <code>src/canvas/mod.rs</code> you find a default implementation of <code>tossed_box</code>.
-Adopt it to reflect an actual tossed box.</p>
-<p>Then find the <code>toss</code> function in <code>src/picture/mod.rs</code> and use the freshly
-defined <code>tossed_box</code> function in its body.</p>
-<p>Next don't forget to change <code>geometry</code> binary to use the new <code>toss</code> function,
-execute it and marvel at the tossed letter d in <code>output.svg</code>.</p>
+                        <a class="header" href="quartet.html#quartet" id="quartet"><h1>quartet</h1></a>
+<p><img src="image/quartet_of_d.svg" alt="A quartet of transformed ds" width="400px" height="400px"></p>
+<p>A quartet of images, our next goal we will take on. As promised, we will not
+need to create a box this time. Instead, we our going to use the primitives we
+already created ourselves.</p>
+<p>Take some time and study the picture. How are the different parts related? Do
+any picture primitives spring to mind?</p>
+<a class="header" href="quartet.html#implementation" id="implementation"><h2>Implementation</h2></a>
+<p>Open <code>src/picture/mod.rs</code>. In it you will find the <code>quartet</code> function. Below is
+it's signature repeated.</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+pub fn quartet&lt;P, Q, R, S&gt;(nw: Rc&lt;P&gt;, ne: Rc&lt;Q&gt;, sw: Rc&lt;R&gt;, se: Rc&lt;S&gt;) -&gt; Rc&lt;impl Fn(&amp;Bx) -&gt; Rendering&gt;
+where P: Fn(&amp;Bx) -&gt; Rendering, Q: Fn(&amp;Bx) -&gt; Rendering, R: Fn(&amp;Bx) -&gt; Rendering, S: Fn(&amp;Bx) -&gt; Rendering```
+
+It is hard to look at. The reason for this is that Rust treats every closure as
+its own type. So even though the type parameters `P`, `Q`, `R` and `S` seem to
+be defined the same, at compile time they could be different.
+
+Either way, the implementation of the quartet should result in a `Rendering` of
+the arguments. They are called `nw`, `ne`, `sw` and `se` to help orient them in
+the quartet.
+
+When you find the right combination of picture primitives make sure to enjoy
+your hard-work and use it in the `geometry` binary.
+#}</code></pre></pre>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="picture.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="beside.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
-                        
-                            <a rel="next" href="above.html" class="mobile-nav-chapters next" title="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
-                            </a>
                         
 
                         <div style="clear: both"></div>
@@ -175,15 +172,11 @@ execute it and marvel at the tossed letter d in <code>output.svg</code>.</p>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="picture.html" class="nav-chapters previous" title="Previous chapter" aria-keyshortcuts="Left">
+                    <a href="beside.html" class="nav-chapters previous" title="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
-                
-                    <a href="above.html" class="nav-chapters next" title="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
-                    </a>
                 
             </nav>
 
