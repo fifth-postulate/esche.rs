@@ -14,9 +14,9 @@ fn main() {
         Vector::new(250f64, 0f64),
         Vector::new(0f64, 250f64)
     );
-    let shapes = letter::d();
+    let shapes = escher::fish();
     let source = create_picture(shapes);
-    let picture = over(source.clone(), toss(source.clone()));
+    let picture = source;
     let document = to_svg((400f64, 400f64), &picture(&bx));
     svg::save("output.svg", &document).unwrap();
 }

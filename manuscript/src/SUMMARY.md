@@ -14,4 +14,5 @@
 * [quartet](./quartet.md)
 * [nonet](./nonet.md)
 * [over](./over.md)
+* [owl](./owl.md)
 [Documentation](./doc/eschers/index.html)

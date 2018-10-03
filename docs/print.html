@@ -79,7 +79,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li class="affix"><a href="title.html">Title</a></li><li class="affix"><a href="motivation.html">Motivation</a></li><li class="affix"><a href="grid.html">Grid method</a></li><li class="affix"><a href="box.html">Box</a></li><li class="affix"><a href="start.html">The letter d</a></li><li><a href="turn.html"><strong aria-hidden="true">1.</strong> Turn</a></li><li><a href="flip.html"><strong aria-hidden="true">2.</strong> Flip</a></li><li><a href="picture.html"><strong aria-hidden="true">3.</strong> Picture</a></li><li><a href="toss.html"><strong aria-hidden="true">4.</strong> Toss</a></li><li><a href="above.html"><strong aria-hidden="true">5.</strong> Above</a></li><li><a href="beside.html"><strong aria-hidden="true">6.</strong> Beside</a></li><li><a href="quartet.html"><strong aria-hidden="true">7.</strong> quartet</a></li><li><a href="nonet.html"><strong aria-hidden="true">8.</strong> nonet</a></li><li><a href="over.html"><strong aria-hidden="true">9.</strong> over</a></li></ol>
+            <ol class="chapter"><li class="affix"><a href="title.html">Title</a></li><li class="affix"><a href="motivation.html">Motivation</a></li><li class="affix"><a href="grid.html">Grid method</a></li><li class="affix"><a href="box.html">Box</a></li><li class="affix"><a href="start.html">The letter d</a></li><li><a href="turn.html"><strong aria-hidden="true">1.</strong> Turn</a></li><li><a href="flip.html"><strong aria-hidden="true">2.</strong> Flip</a></li><li><a href="picture.html"><strong aria-hidden="true">3.</strong> Picture</a></li><li><a href="toss.html"><strong aria-hidden="true">4.</strong> Toss</a></li><li><a href="above.html"><strong aria-hidden="true">5.</strong> Above</a></li><li><a href="beside.html"><strong aria-hidden="true">6.</strong> Beside</a></li><li><a href="quartet.html"><strong aria-hidden="true">7.</strong> quartet</a></li><li><a href="nonet.html"><strong aria-hidden="true">8.</strong> nonet</a></li><li><a href="over.html"><strong aria-hidden="true">9.</strong> over</a></li><li><a href="owl.html"><strong aria-hidden="true">10.</strong> owl</a></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -573,6 +573,29 @@ that to your advantage. If you have a hard time figuring out this primitive,
 make sure to discuss it with your neighbor.</p>
 <p>Once you get the solution show your work to your discussion partner by using it
 in the <code>geometry</code> binary.</p>
+<a class="header" href="print.html#drawing-an-owl" id="drawing-an-owl"><h1>Drawing an Owl</h1></a>
+<p><img src="image/fish.svg" alt="Eschers famous fish" width="400px" height="400px"></p>
+<p>On the internet there is an image that explains how to draw an owl.</p>
+<p>TODO show how to draw an owl.</p>
+<p>With the possibility of stating something similar I will give you the <code>fish</code>
+shape as a black box. I can imagine that you feel a bit disappointed. In my
+defense you should take a look at the definition of the fish.</p>
+<a class="header" href="print.html#implementation-3" id="implementation-3"><h2>Implementation</h2></a>
+<p>You can use the fish by using the right module.</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+use eschers::shape::letter;
+#}</code></pre></pre>
+<p>and calling the appropriate function, which is aptly named <code>fish</code>.</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+let shapes = escher::fish();
+#}</code></pre></pre>
+<p>With our fishing rod in hand and our picture primitives under our belt, we are
+ready to scale mount Escher. We will do that be defining some tiles and
+stitching them together in our final image.</p>
 
                     </main>
 
