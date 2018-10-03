@@ -18,4 +18,5 @@
 * [ttile](./ttile.md)
 * [utile](./utile.md)
 * [side](./side.md)
+* [corner](./corner.md)
 [Documentation](./doc/eschers/index.html)
