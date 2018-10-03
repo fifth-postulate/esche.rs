@@ -17,4 +17,5 @@
 * [owl](./owl.md)
 * [ttile](./ttile.md)
 * [utile](./utile.md)
+* [side](./side.md)
 [Documentation](./doc/eschers/index.html)

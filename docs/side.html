@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>toss - Esche.rs</title>
+        <title>side - Esche.rs</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="A book accompanying a workshop to recreate Escher's square limit.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -79,7 +79,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li class="affix"><a href="title.html">Title</a></li><li class="affix"><a href="motivation.html">Motivation</a></li><li class="affix"><a href="grid.html">Grid method</a></li><li class="affix"><a href="box.html">Box</a></li><li class="affix"><a href="start.html">The letter d</a></li><li><a href="turn.html"><strong aria-hidden="true">1.</strong> turn</a></li><li><a href="flip.html"><strong aria-hidden="true">2.</strong> flip</a></li><li><a href="picture.html"><strong aria-hidden="true">3.</strong> Picture</a></li><li><a href="toss.html" class="active"><strong aria-hidden="true">4.</strong> toss</a></li><li><a href="above.html"><strong aria-hidden="true">5.</strong> above</a></li><li><a href="beside.html"><strong aria-hidden="true">6.</strong> beside</a></li><li><a href="quartet.html"><strong aria-hidden="true">7.</strong> quartet</a></li><li><a href="nonet.html"><strong aria-hidden="true">8.</strong> nonet</a></li><li><a href="over.html"><strong aria-hidden="true">9.</strong> over</a></li><li><a href="owl.html"><strong aria-hidden="true">10.</strong> owl</a></li><li><a href="ttile.html"><strong aria-hidden="true">11.</strong> ttile</a></li><li><a href="utile.html"><strong aria-hidden="true">12.</strong> utile</a></li><li><a href="side.html"><strong aria-hidden="true">13.</strong> side</a></li></ol>
+            <ol class="chapter"><li class="affix"><a href="title.html">Title</a></li><li class="affix"><a href="motivation.html">Motivation</a></li><li class="affix"><a href="grid.html">Grid method</a></li><li class="affix"><a href="box.html">Box</a></li><li class="affix"><a href="start.html">The letter d</a></li><li><a href="turn.html"><strong aria-hidden="true">1.</strong> turn</a></li><li><a href="flip.html"><strong aria-hidden="true">2.</strong> flip</a></li><li><a href="picture.html"><strong aria-hidden="true">3.</strong> Picture</a></li><li><a href="toss.html"><strong aria-hidden="true">4.</strong> toss</a></li><li><a href="above.html"><strong aria-hidden="true">5.</strong> above</a></li><li><a href="beside.html"><strong aria-hidden="true">6.</strong> beside</a></li><li><a href="quartet.html"><strong aria-hidden="true">7.</strong> quartet</a></li><li><a href="nonet.html"><strong aria-hidden="true">8.</strong> nonet</a></li><li><a href="over.html"><strong aria-hidden="true">9.</strong> over</a></li><li><a href="owl.html"><strong aria-hidden="true">10.</strong> owl</a></li><li><a href="ttile.html"><strong aria-hidden="true">11.</strong> ttile</a></li><li><a href="utile.html"><strong aria-hidden="true">12.</strong> utile</a></li><li><a href="side.html" class="active"><strong aria-hidden="true">13.</strong> side</a></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -125,47 +125,32 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="toss.html#toss" id="toss"><h1>Toss</h1></a>
-<p><img src="image/d_tossed.svg" alt="The letter d tossed" width="400px" height="400px"></p>
-<p>With the information about <code>Picture</code> in our mind, we toss ourselves on our new
-goal. We want to toss our letter d in the air. By now our method of operation is
-familiar. Define a tossed box and use it to define our <code>toss</code> function.</p>
-<div class="reference">
-  <img src="image/box.svg" alt="The standard box for reference" width="400px" height="400px">
-  <img src="image/box_tossed.svg" alt="The standard box tossed" width="400px" height="400px">
-</div>
-<p>Look at the reference box and the tossed box. Whoops, it draws outside of the
-boundary! Is that even allowed?</p>
-<p>Let's try to figure out the vectors for our tossed box. The new <code>a</code> vector is right
-between the the original <code>b</code> and <code>c</code> vectors. I.e. \(a' = a+\frac{b + c}{2}\).</p>
-<p>the new <code>b</code> vector is halve as large as the vector addition of <code>b</code> + <code>c</code>. I.e.
-\(b' = \frac{b + c}{2}\).</p>
-<p>The new <code>c</code> is halve as large as the vector from <code>b</code> that reaches <code>c</code>. I.e.
-\(c' = \frac{c - b}{2}\).</p>
-<a class="header" href="toss.html#implement" id="implement"><h2>Implement</h2></a>
-<p>Having found the relations between the original box defining vectors and the
-tossed box its defining vector, we can proceed to implement it.</p>
-<p>Again in <code>src/canvas/mod.rs</code> you find a default implementation of <code>tossed_box</code>.
-Adopt it to reflect an actual tossed box.</p>
-<p>Then find the <code>toss</code> function in <code>src/picture/mod.rs</code> and use the freshly
-defined <code>tossed_box</code> function in its body.</p>
-<p>Next don't forget to change <code>geometry</code> binary to use the new <code>toss</code> function,
-execute it and marvel at the tossed letter d in <code>output.svg</code>.</p>
+                        <a class="header" href="side.html#side" id="side"><h1>side</h1></a>
+<p><img src="image/order_3_side.svg" alt="A order 3 side of fish" width="400px" height="400px"></p>
+<p>Beautiful. What you are looking at it the <em>order 3</em> side of fish. Escher Square
+Limit obviously is a finite picture, there are only so many fish one can draw.
+But it clearly hints at the image it wants to be. The infinite arrangement of
+fish we are working on to recreate.</p>
+<p>One way to do that is with recursion. It can be hard to literally see how, so I
+will draw your attention to some of the finer details.</p>
+<p><img src="image/order_3_side_grid.svg" alt="A order 3 side of fish in a grid" width="400px" height="400px"></p>
+<p>At the bottom squares you could recognize the ttile of fish we created moments
+ago. And in the bottom squares. Wait a minute, that is our side that we are
+creating, only with one level less.</p>
+<a class="header" href="side.html#implementation" id="implementation"><h2>Implementation</h2></a>
+<p>Find the appropriate primitives and connect them in the right way to create a
+recursive side.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="picture.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="utile.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
-                        
-                            <a rel="next" href="above.html" class="mobile-nav-chapters next" title="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
-                            </a>
                         
 
                         <div style="clear: both"></div>
@@ -175,15 +160,11 @@ execute it and marvel at the tossed letter d in <code>output.svg</code>.</p>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="picture.html" class="nav-chapters previous" title="Previous chapter" aria-keyshortcuts="Left">
+                    <a href="utile.html" class="nav-chapters previous" title="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
-                
-                    <a href="above.html" class="nav-chapters next" title="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
-                    </a>
                 
             </nav>
 
