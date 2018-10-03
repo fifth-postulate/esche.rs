@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>The letter d - Esche.rs</title>
+        <title>nonet - Esche.rs</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="A book accompanying a workshop to recreate Escher's square limit.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -79,7 +79,7 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li class="affix"><a href="title.html">Title</a></li><li class="affix"><a href="motivation.html">Motivation</a></li><li class="affix"><a href="grid.html">Grid method</a></li><li class="affix"><a href="box.html">Box</a></li><li class="affix"><a href="start.html" class="active">The letter d</a></li><li><a href="turn.html"><strong aria-hidden="true">1.</strong> Turn</a></li><li><a href="flip.html"><strong aria-hidden="true">2.</strong> Flip</a></li><li><a href="picture.html"><strong aria-hidden="true">3.</strong> Picture</a></li><li><a href="toss.html"><strong aria-hidden="true">4.</strong> Toss</a></li><li><a href="above.html"><strong aria-hidden="true">5.</strong> Above</a></li><li><a href="beside.html"><strong aria-hidden="true">6.</strong> Beside</a></li><li><a href="quartet.html"><strong aria-hidden="true">7.</strong> quartet</a></li><li><a href="nonet.html"><strong aria-hidden="true">8.</strong> nonet</a></li></ol>
+            <ol class="chapter"><li class="affix"><a href="title.html">Title</a></li><li class="affix"><a href="motivation.html">Motivation</a></li><li class="affix"><a href="grid.html">Grid method</a></li><li class="affix"><a href="box.html">Box</a></li><li class="affix"><a href="start.html">The letter d</a></li><li><a href="turn.html"><strong aria-hidden="true">1.</strong> Turn</a></li><li><a href="flip.html"><strong aria-hidden="true">2.</strong> Flip</a></li><li><a href="picture.html"><strong aria-hidden="true">3.</strong> Picture</a></li><li><a href="toss.html"><strong aria-hidden="true">4.</strong> Toss</a></li><li><a href="above.html"><strong aria-hidden="true">5.</strong> Above</a></li><li><a href="beside.html"><strong aria-hidden="true">6.</strong> Beside</a></li><li><a href="quartet.html"><strong aria-hidden="true">7.</strong> quartet</a></li><li><a href="nonet.html" class="active"><strong aria-hidden="true">8.</strong> nonet</a></li></ol>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
@@ -125,32 +125,31 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="start.html#the-letter-d" id="the-letter-d"><h1>The letter d</h1></a>
-<p>You need to walk before you run. So instead of starting with drawing fish, we
-will take a look at the letter d.</p>
-<p><img src="image/d.svg" alt="The letter d" width="400px" height="400px"></p>
-<p>The letter d is a recognizable shape that does not have a lot of <em>symmetries</em>.
-I.e. If you rotate it or flip it, it doesn't look lite itself anymore. This
-isn't true for the letter H for example.</p>
-<p>By focusing on the letter d and transforming it, we can figure out how to change
-our box. This is hard work, but very rewarding.</p>
-<p>If you follow along and implement the functions laid out by the next chapters,
-you are well on your way to reproducing Eschers Square Limit.</p>
+                        <a class="header" href="nonet.html#nonet" id="nonet"><h1>nonet</h1></a>
+<p><img src="image/nonet_of_d.svg" alt="A nonet of transformed ds" width="400px" height="400px"></p>
+<p>What four is to quartet, nine is to nonet. This time we will arrange nine
+pictures in a nice grid. Again, this can be achieved with the primitives we
+defined our selves.</p>
+<p>Analyze the image and dream up a way to build it.</p>
+<a class="header" href="nonet.html#implementation" id="implementation"><h2>Implementation</h2></a>
+<p>If you don't like spoilers do not read any further. I am going to tell you how I
+approached the problem. I introduced to intermediate picture primitives, a
+column and a row. A column stacks three pictures atop each other, and row does
+the same, but puts them side by side. With these primitives nonet is defined
+with a few lines of code.</p>
+<p>If you have defined the nonet, go ahead and appreciate your hard work. Use it in
+the <code>geometry</code> binary and enjoy the marvelous nonet.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="box.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="quartet.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
-                        
-                            <a rel="next" href="turn.html" class="mobile-nav-chapters next" title="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
-                            </a>
                         
 
                         <div style="clear: both"></div>
@@ -160,15 +159,11 @@ you are well on your way to reproducing Eschers Square Limit.</p>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="box.html" class="nav-chapters previous" title="Previous chapter" aria-keyshortcuts="Left">
+                    <a href="quartet.html" class="nav-chapters previous" title="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
-                
-                    <a href="turn.html" class="nav-chapters next" title="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
-                    </a>
                 
             </nav>
 

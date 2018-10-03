@@ -12,4 +12,5 @@
 * [Above](./above.md)
 * [Beside](./beside.md)
 * [quartet](./quartet.md)
+* [nonet](./nonet.md)
 [Documentation](./doc/eschers/index.html)
