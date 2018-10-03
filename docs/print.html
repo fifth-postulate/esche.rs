@@ -270,8 +270,8 @@ implemented by calling the identity function on its argument</p>
 <p>We need to change that and return a turned box. <code>Box</code> has a constructor called
 <code>new</code>. When provided with three <code>Vector</code> arguments it will a create a box with
 the corresponding fields.</p>
-<p>Take a look at the documentation for <code>Vector</code> in order to figure out how to do
-vector addition and vector negation.</p>
+<p>Take a look at the documentation for <a href="doc/eschers/index.html"><code>Vector</code></a> in order
+to figure out how to do vector addition and vector negation.</p>
 <p>Having done that, try to implement the <code>turn_box</code> function correctly. You can
 test your function by running <code>geometry</code> binary.</p>
 <pre><code class="language-shell">cargo run --bin geometry
@@ -335,9 +335,9 @@ where Picture: Fn(&amp;Bx) -&gt; Rendering{
     })
 }
 #}</code></pre></pre>
-<p>Whoah, look at that signature! It is wild! Take a deep breath, we will look will
-explain the signature in a moment. The important parts, the part that turns the
-picture is nicely tucked away.</p>
+<p>Whoah, look at that signature! It is wild! Take a deep breath, we will explain
+the signature in a moment. The important parts, the part that turns the picture
+is nicely tucked away.</p>
 <pre><pre class="playpen"><code class="language-rust">
 # #![allow(unused_variables)]
 #fn main() {
@@ -452,7 +452,7 @@ familiar. Define a tossed box and use it to define our <code>toss</code> functio
   <img src="image/box.svg" alt="The standard box for reference" width="400px" height="400px">
   <img src="image/box_tossed.svg" alt="The standard box tossed" width="400px" height="400px">
 </div>
-<p>Look at the reference box and the tossed box. Whoops it draws outside of the
+<p>Look at the reference box and the tossed box. Whoops, it draws outside of the
 boundary! Is that even allowed?</p>
 <p>Let's try to figure out the vectors for our tossed box. The new <code>a</code> vector is right
 between the the original <code>b</code> and <code>c</code> vectors. I.e. \(a' = a+\frac{b + c}{2}\).</p>

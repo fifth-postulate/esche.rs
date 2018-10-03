@@ -66,9 +66,9 @@ where Picture: Fn(&Bx) -> Rendering{
 }
 ```
 
-Whoah, look at that signature! It is wild! Take a deep breath, we will look will
-explain the signature in a moment. The important parts, the part that turns the
-picture is nicely tucked away.
+Whoah, look at that signature! It is wild! Take a deep breath, we will explain
+the signature in a moment. The important parts, the part that turns the picture
+is nicely tucked away. 
 
 ```rust
 let turned_box = turn_box(&bx);

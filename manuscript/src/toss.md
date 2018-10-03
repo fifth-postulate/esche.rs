@@ -10,7 +10,7 @@ familiar. Define a tossed box and use it to define our `toss` function.
   <img src="image/box_tossed.svg" alt="The standard box tossed" width="400px" height="400px">
 </div>
 
-Look at the reference box and the tossed box. Whoops it draws outside of the
+Look at the reference box and the tossed box. Whoops, it draws outside of the
 boundary! Is that even allowed?
 
 Let's try to figure out the vectors for our tossed box. The new `a` vector is right

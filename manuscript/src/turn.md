@@ -34,8 +34,8 @@ We need to change that and return a turned box. `Box` has a constructor called
 `new`. When provided with three `Vector` arguments it will a create a box with
 the corresponding fields.
 
-Take a look at the documentation for `Vector` in order to figure out how to do
-vector addition and vector negation.
+Take a look at the documentation for [`Vector`](doc/eschers/index.html) in order
+to figure out how to do vector addition and vector negation. 
 
 Having done that, try to implement the `turn_box` function correctly. You can
 test your function by running `geometry` binary.
