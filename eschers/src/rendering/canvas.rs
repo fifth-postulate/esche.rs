@@ -1,8 +1,8 @@
 //! Turning a `Box` into an SVG.
 
-use svg::Document;
-use svg::node::Node;
 use svg::node::element as Svg;
+use svg::node::Node;
+use svg::Document;
 
 use canvas::Box as Bx;
 use picture::Rendering;
@@ -11,8 +11,7 @@ type Bounds = (f64, f64);
 
 /// Create an SVG document from a `Rendering`
 pub fn to_svg(bounds: Bounds, bx: &Bx) -> Document {
-    let mut document = Document::new()
-        .set("viewbox", (0.0, 0.0, bounds.0, bounds.1));
+    let mut document = Document::new().set("viewbox", (0.0, 0.0, bounds.0, bounds.1));
 
     let mut defs = Svg::Definitions::new();
     let mut marker = Svg::Marker::new()
@@ -58,8 +57,10 @@ pub fn to_svg(bounds: Bounds, bx: &Bx) -> Document {
     defs.append(marker);
     document.append(defs);
 
-    let mut group = Svg::Group::new()
-        .set("transform", format!("scale(1,-1) translate(0,{})", -bounds.1));
+    let mut group = Svg::Group::new().set(
+        "transform",
+        format!("scale(1,-1) translate(0,{})", -bounds.1),
+    );
 
     let mut node = Svg::Line::new()
         .set("x1", 0.0)
@@ -124,4 +125,3 @@ pub fn to_svg(bounds: Bounds, bx: &Bx) -> Document {
     document.append(group);
     document
 }
-

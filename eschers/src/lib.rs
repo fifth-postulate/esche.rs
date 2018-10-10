@@ -1,12 +1,11 @@
-#[deny(missing_docs)]
-
-extern crate svg;
 extern crate itertools;
+#[deny(missing_docs)]
+extern crate svg;
 
-pub mod vector;
 pub mod canvas;
+pub mod fitting;
+pub mod picture;
+pub mod rendering;
 pub mod shape;
 pub mod style;
-pub mod picture;
-pub mod fitting;
-pub mod rendering;
+pub mod vector;

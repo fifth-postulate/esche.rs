@@ -4,7 +4,7 @@
 #[derive(Debug, Clone, Copy)]
 pub struct Style {
     /// Width of a pen stroke
-    pub stroke_width: f64
+    pub stroke_width: f64,
 }
 
 impl Style {

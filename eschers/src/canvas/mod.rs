@@ -27,20 +27,12 @@ pub fn identity(bx: &Box) -> Box {
 
 /// Rotate box through 90 degrees
 pub fn turn_box(bx: &Box) -> Box {
-    Box::new(
-        bx.a.add(&bx.b),
-        bx.c,
-        bx.b.neg()
-    )
+    Box::new(bx.a.add(&bx.b), bx.c, bx.b.neg())
 }
 
 /// Flip box vertically
 pub fn flip_box(bx: &Box) -> Box {
-    Box::new(
-        bx.a.add(&bx.b),
-        bx.b.neg(),
-        bx.c
-    )
+    Box::new(bx.a.add(&bx.b), bx.b.neg(), bx.c)
 }
 
 /// Toss box
@@ -48,7 +40,7 @@ pub fn toss_box(bx: &Box) -> Box {
     Box::new(
         bx.a.add(&bx.b.add(&bx.c).scale(&0.5)),
         bx.b.add(&bx.c).scale(&0.5),
-        bx.c.sub(&bx.b).scale(&0.5)
+        bx.c.sub(&bx.b).scale(&0.5),
     )
 }
 
@@ -61,42 +53,25 @@ pub fn split_box_horizontally(factor: f64, bx: &Box) -> (Box, Box) {
 }
 
 fn move_box_horizontally(factor: f64, bx: &Box) -> Box {
-    Box::new(
-        bx.a.add(&bx.c.scale(&factor)),
-        bx.b,
-        bx.c
-    )
+    Box::new(bx.a.add(&bx.c.scale(&factor)), bx.b, bx.c)
 }
 
 fn scale_box_horizontally(factor: f64, bx: &Box) -> Box {
-    Box::new(
-        bx.a,
-        bx.b,
-        bx.c.scale(&factor)
-    )
+    Box::new(bx.a, bx.b, bx.c.scale(&factor))
 }
 
 /// Create two boxes beside each other that together make up the original box.
 pub fn split_box_vertically(factor: f64, bx: &Box) -> (Box, Box) {
     let left = scale_box_vertically(factor, &bx);
-    let right = scale_box_vertically(1.0-factor, &move_box_vertically(factor, &bx));
+    let right = scale_box_vertically(1.0 - factor, &move_box_vertically(factor, &bx));
 
     (left, right)
 }
 
 fn move_box_vertically(factor: f64, bx: &Box) -> Box {
-    Box::new(
-        bx.a.add(&bx.b.scale(&factor)),
-        bx.b,
-        bx.c
-    )
+    Box::new(bx.a.add(&bx.b.scale(&factor)), bx.b, bx.c)
 }
 
 fn scale_box_vertically(factor: f64, bx: &Box) -> Box {
-    Box::new(
-        bx.a,
-        bx.b.scale(&factor),
-        bx.c
-    )
+    Box::new(bx.a, bx.b.scale(&factor), bx.c)
 }
-

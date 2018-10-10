@@ -60,19 +60,24 @@
 //! Note that all the methods that return a `Vector`, do so by returning a new
 //! structure.
 
-
-use std::ops::{Add, Neg, Mul};
+use std::ops::{Add, Mul, Neg};
 
 /// Representation of two dimensional vector
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct Vector<T> where T: Clone + Copy {
+pub struct Vector<T>
+where
+    T: Clone + Copy,
+{
     /// x-coordinate of the vector
     pub x: T,
     /// y-coordinate of the vector
     pub y: T,
 }
 
-impl<T> Vector<T> where T: Copy + Add<Output=T> + Neg<Output=T> + Mul<Output=T> {
+impl<T> Vector<T>
+where
+    T: Copy + Add<Output = T> + Neg<Output = T> + Mul<Output = T>,
+{
     /// Create a `Vector` with Cartesian coordinates `x` and `y`
     pub fn new(x: T, y: T) -> Self {
         Vector { x, y }
