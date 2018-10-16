@@ -433,7 +433,11 @@ parts of our program can not reuse it.</p>
 <p>Usually a possible solution to not owning data is to take a reference.
 Unfortunately, that is not an option here. It is a bit involved, but it has to
 do with <code>lifetimes</code>.</p>
-<p>TODO explain why lifetimes are in the way.</p>
+<p>In order for the Rust compiler to make some guarantees, the languages introduces
+lifetimes. The lifetimes of a piece of data is akin to a scope in which that
+data is valid.</p>
+<p>Often Rust infers the lifetime for you, sometimes it can't. We opted for the
+easy way out.</p>
 <a class="header" href="print.html#rc-to-the-rescue" id="rc-to-the-rescue"><h3>Rc to the rescue</h3></a>
 <p>Luckily, with a reference counting pointer, these problems go away. We do trade
 something for it. We can't use our program in a multi-threaded environment. We

@@ -84,7 +84,12 @@ Usually a possible solution to not owning data is to take a reference.
 Unfortunately, that is not an option here. It is a bit involved, but it has to
 do with `lifetimes`.
 
-TODO explain why lifetimes are in the way.
+In order for the Rust compiler to make some guarantees, the languages introduces
+lifetimes. The lifetimes of a piece of data is akin to a scope in which that
+data is valid.
+
+Often Rust infers the lifetime for you, sometimes it can't. We opted for the
+easy way out.
 
 ### Rc to the rescue
 Luckily, with a reference counting pointer, these problems go away. We do trade
