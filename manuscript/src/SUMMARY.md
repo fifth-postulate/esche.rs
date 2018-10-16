@@ -20,4 +20,5 @@
 * [side](./side.md)
 * [corner](./corner.md)
 * [square_limit](./square_limit.md)
-[Documentation](./doc/eschers/index.html)
+* [Farewell](./farewell.md)
+[Documentation](./documentation.md)
