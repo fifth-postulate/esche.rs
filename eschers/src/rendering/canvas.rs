@@ -5,7 +5,6 @@ use svg::node::Node;
 use svg::Document;
 
 use canvas::Box as Bx;
-use picture::Rendering;
 
 type Bounds = (f64, f64);
 
