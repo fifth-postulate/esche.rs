@@ -5,3 +5,5 @@ This is it. The final stage of our long quest. You now what to do. You have the 
 
 <img src="image/order_3_square_limit_grid.svg" alt="A order 3 square limit of fish in a grid" width="400px" height="400px">
 
+## Implementation
+It is a bit of a puzzle, but you will get there.
