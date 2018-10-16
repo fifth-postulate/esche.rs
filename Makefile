@@ -2,6 +2,9 @@
 
 .PHONE: clean
 
+cargo_home: eschers
+	./fetch-deps
+
 docs: manuscript eschers/target/doc
 	cd manuscript; mdbook build
 	cp -r eschers/target/doc docs/
