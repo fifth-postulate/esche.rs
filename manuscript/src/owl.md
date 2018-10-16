@@ -3,7 +3,8 @@
 
 On the internet there is an image that explains how to draw an owl.
 
-TODO show how to draw an owl.
+<img src="image/owl.jpg" alt="How to draw an owl">
+
 
 With the possibility of stating something similar I will give you the `fish`
 shape as a black box. I can imagine that you feel a bit disappointed. In my
