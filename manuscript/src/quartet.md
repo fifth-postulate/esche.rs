@@ -14,7 +14,8 @@ it's signature repeated.
 
 ```rust
 pub fn quartet<P, Q, R, S>(nw: Rc<P>, ne: Rc<Q>, sw: Rc<R>, se: Rc<S>) -> Rc<impl Fn(&Bx) -> Rendering>
-where P: Fn(&Bx) -> Rendering, Q: Fn(&Bx) -> Rendering, R: Fn(&Bx) -> Rendering, S: Fn(&Bx) -> Rendering```
+where P: Fn(&Bx) -> Rendering, Q: Fn(&Bx) -> Rendering, R: Fn(&Bx) -> Rendering, S: Fn(&Bx) -> Rendering
+```
 
 It is hard to look at. The reason for this is that Rust treats every closure as
 its own type. So even though the type parameters `P`, `Q`, `R` and `S` seem to

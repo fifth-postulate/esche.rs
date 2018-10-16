@@ -525,19 +525,16 @@ it's signature repeated.</p>
 # #![allow(unused_variables)]
 #fn main() {
 pub fn quartet&lt;P, Q, R, S&gt;(nw: Rc&lt;P&gt;, ne: Rc&lt;Q&gt;, sw: Rc&lt;R&gt;, se: Rc&lt;S&gt;) -&gt; Rc&lt;impl Fn(&amp;Bx) -&gt; Rendering&gt;
-where P: Fn(&amp;Bx) -&gt; Rendering, Q: Fn(&amp;Bx) -&gt; Rendering, R: Fn(&amp;Bx) -&gt; Rendering, S: Fn(&amp;Bx) -&gt; Rendering```
-
-It is hard to look at. The reason for this is that Rust treats every closure as
-its own type. So even though the type parameters `P`, `Q`, `R` and `S` seem to
-be defined the same, at compile time they could be different.
-
-Either way, the implementation of the quartet should result in a `Rendering` of
-the arguments. They are called `nw`, `ne`, `sw` and `se` to help orient them in
-the quartet.
-
-When you find the right combination of picture primitives make sure to enjoy
-your hard-work and use it in the `geometry` binary.
+where P: Fn(&amp;Bx) -&gt; Rendering, Q: Fn(&amp;Bx) -&gt; Rendering, R: Fn(&amp;Bx) -&gt; Rendering, S: Fn(&amp;Bx) -&gt; Rendering
 #}</code></pre></pre>
+<p>It is hard to look at. The reason for this is that Rust treats every closure as
+its own type. So even though the type parameters <code>P</code>, <code>Q</code>, <code>R</code> and <code>S</code> seem to
+be defined the same, at compile time they could be different.</p>
+<p>Either way, the implementation of the quartet should result in a <code>Rendering</code> of
+the arguments. They are called <code>nw</code>, <code>ne</code>, <code>sw</code> and <code>se</code> to help orient them in
+the quartet.</p>
+<p>When you find the right combination of picture primitives make sure to enjoy
+your hard-work and use it in the <code>geometry</code> binary.</p>
 <a class="header" href="print.html#nonet" id="nonet"><h1>nonet</h1></a>
 <p><img src="image/nonet_of_d.svg" alt="A nonet of transformed ds" width="400px" height="400px"></p>
 <p>What four is to quartet, nine is to nonet. This time we will arrange nine
