@@ -2,6 +2,7 @@
 
 [Title](./title.md)
 [Motivation](./motivation.md)
+[Documentation](./documentation.md)
 [Grid method](./grid.md)
 [Box](./box.md)
 [The letter d](./start.md)
@@ -21,4 +22,3 @@
 * [corner](./corner.md)
 * [square_limit](./square_limit.md)
 * [Farewell](./farewell.md)
-[Documentation](./documentation.md)
