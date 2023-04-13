@@ -1,0 +1,27 @@
+blockquote {
+    border-left-style: solid;
+    border-left-width: 5px;
+    border-left-color: gray;
+    background-color: #F2F3F4;
+    padding-left: 2em;
+    padding-right: 2em;
+}
+
+span.image {
+    display: inline-block;
+    width: max-content;
+}
+
+span.image img {
+    object-fit: contain;
+}
+
+span.tall.image img {
+    width: auto;
+    max-height: 400px;
+}
+
+span.wide.image img {
+    height: auto;
+    max-width: 600px;
+}
