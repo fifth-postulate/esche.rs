@@ -1,5 +1,4 @@
 extern crate itertools;
-#[deny(missing_docs)]
 extern crate svg;
 
 pub mod canvas;

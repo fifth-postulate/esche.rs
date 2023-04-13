@@ -18,7 +18,7 @@ Next we draw a second grid, similar to the first.
 </div>
 
 Now we focus on a single cell in the original grid, and accurately copy it in
-the corresponding grid in the target grid. Going from top to bottom and from
+the corresponding cell in the target grid. Going from top to bottom and from
 left to right, our first cell is empty. The second cell has a single tooth of
 the gear. Let's copy it over.
 

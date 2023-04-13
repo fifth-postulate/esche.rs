@@ -46,8 +46,8 @@ pub fn toss_box(bx: &Box) -> Box {
 
 /// Create two boxes above each other that together make up the original box.
 pub fn split_box_horizontally(factor: f64, bx: &Box) -> (Box, Box) {
-    let top = scale_box_horizontally(factor, &move_box_horizontally(1.0 - factor, &bx));
-    let bottom = scale_box_horizontally(1.0 - factor, &bx);
+    let top = scale_box_horizontally(factor, &move_box_horizontally(1.0 - factor, bx));
+    let bottom = scale_box_horizontally(1.0 - factor, bx);
 
     (top, bottom)
 }
@@ -62,8 +62,8 @@ fn scale_box_horizontally(factor: f64, bx: &Box) -> Box {
 
 /// Create two boxes beside each other that together make up the original box.
 pub fn split_box_vertically(factor: f64, bx: &Box) -> (Box, Box) {
-    let left = scale_box_vertically(factor, &bx);
-    let right = scale_box_vertically(1.0 - factor, &move_box_vertically(factor, &bx));
+    let left = scale_box_vertically(factor, bx);
+    let right = scale_box_vertically(1.0 - factor, &move_box_vertically(factor, bx));
 
     (left, right)
 }

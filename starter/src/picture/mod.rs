@@ -16,19 +16,18 @@ pub fn blank() -> Rc<impl Fn(&Bx) -> Rendering> {
 }
 
 /// Turn the picture
-pub fn turn<Picture>(picture: Rc<Picture>) -> Rc<impl Fn(&Bx) -> Rendering>
+pub fn turn<Picture>(p: Rc<Picture>) -> Rc<impl Fn(&Bx) -> Rendering>
 where
     Picture: Fn(&Bx) -> Rendering,
 {
-    let p = picture.clone();
     Rc::new(move |bx: &Bx| {
-        let turned_box = turn_box(&bx);
+        let turned_box = turn_box(bx);
         p(&turned_box)
     })
 }
 
 /// Flip the picture
-pub fn flip<Picture>(picture: Rc<Picture>) -> Rc<impl Fn(&Bx) -> Rendering>
+pub fn flip<Picture>(p: Rc<Picture>) -> Rc<impl Fn(&Bx) -> Rendering>
 where
     Picture: Fn(&Bx) -> Rendering,
 {
@@ -36,7 +35,7 @@ where
 }
 
 /// Toss the picture
-pub fn toss<Picture>(picture: Rc<Picture>) -> Rc<impl Fn(&Bx) -> Rendering>
+pub fn toss<Picture>(p: Rc<Picture>) -> Rc<impl Fn(&Bx) -> Rendering>
 where
     Picture: Fn(&Bx) -> Rendering,
 {
@@ -45,8 +44,8 @@ where
 
 /// Stack pictures above each other according to weight
 pub fn above_ratio<P, Q>(
-    picture_p: Rc<P>,
-    picture_q: Rc<Q>,
+    p: Rc<P>,
+    q: Rc<Q>,
     m: u8,
     n: u8,
 ) -> Rc<impl Fn(&Bx) -> Rendering>
@@ -68,8 +67,8 @@ where
 
 /// Stack pictures beside each other according to weight
 pub fn beside_ratio<P, Q>(
-    picture_p: Rc<P>,
-    picture_q: Rc<Q>,
+    p: Rc<P>,
+    q: Rc<Q>,
     m: u8,
     n: u8,
 ) -> Rc<impl Fn(&Bx) -> Rendering>
@@ -150,7 +149,7 @@ where
 }
 
 /// Place two pictures over each other
-pub fn over<P, Q>(picture_p: Rc<P>, picture_q: Rc<Q>) -> Rc<impl Fn(&Bx) -> Rendering>
+pub fn over<P, Q>(p: Rc<P>, q: Rc<Q>) -> Rc<impl Fn(&Bx) -> Rendering>
 where
     P: Fn(&Bx) -> Rendering,
     Q: Fn(&Bx) -> Rendering,
@@ -175,7 +174,7 @@ where
 }
 
 /// The side of the square limit
-pub fn side<P>(picture_p: Rc<P>, n: u8) -> Rc<impl Fn(&Bx) -> Rendering>
+pub fn side<P>(p: Rc<P>, n: u8) -> Rc<impl Fn(&Bx) -> Rendering>
 where
     P: Fn(&Bx) -> Rendering,
 {
@@ -183,7 +182,7 @@ where
 }
 
 /// The corner of the square limit
-pub fn corner<P>(picture_p: Rc<P>, n: u8) -> Rc<impl Fn(&Bx) -> Rendering>
+pub fn corner<P>(p: Rc<P>, n: u8) -> Rc<impl Fn(&Bx) -> Rendering>
 where
     P: Fn(&Bx) -> Rendering,
 {
@@ -191,7 +190,7 @@ where
 }
 
 /// The ultimate goal: Escher's Square Limit
-pub fn square_limit<P>(picture_p: Rc<P>, n: u8) -> Rc<impl Fn(&Bx) -> Rendering>
+pub fn square_limit<P>(p: Rc<P>, n: u8) -> Rc<impl Fn(&Bx) -> Rendering>
 where
     P: Fn(&Bx) -> Rendering,
 {

@@ -16,45 +16,42 @@ pub fn blank() -> Rc<impl Fn(&Bx) -> Rendering> {
 }
 
 /// Turn the picture
-pub fn turn<Picture>(picture: Rc<Picture>) -> Rc<impl Fn(&Bx) -> Rendering>
+pub fn turn<Picture>(p: Rc<Picture>) -> Rc<impl Fn(&Bx) -> Rendering>
 where
     Picture: Fn(&Bx) -> Rendering,
 {
-    let p = picture.clone();
     Rc::new(move |bx: &Bx| {
-        let turned_box = turn_box(&bx);
+        let turned_box = turn_box(bx);
         p(&turned_box)
     })
 }
 
 /// Flip the picture
-pub fn flip<Picture>(picture: Rc<Picture>) -> Rc<impl Fn(&Bx) -> Rendering>
+pub fn flip<Picture>(p: Rc<Picture>) -> Rc<impl Fn(&Bx) -> Rendering>
 where
     Picture: Fn(&Bx) -> Rendering,
 {
-    let p = picture.clone();
     Rc::new(move |bx: &Bx| {
-        let flipped_box = flip_box(&bx);
+        let flipped_box = flip_box(bx);
         p(&flipped_box)
     })
 }
 
 /// Toss the picture
-pub fn toss<Picture>(picture: Rc<Picture>) -> Rc<impl Fn(&Bx) -> Rendering>
+pub fn toss<Picture>(p: Rc<Picture>) -> Rc<impl Fn(&Bx) -> Rendering>
 where
     Picture: Fn(&Bx) -> Rendering,
 {
-    let p = picture.clone();
     Rc::new(move |bx: &Bx| {
-        let tossed_box = toss_box(&bx);
+        let tossed_box = toss_box(bx);
         p(&tossed_box)
     })
 }
 
 /// Stack pictures above each other according to weight
 pub fn above_ratio<P, Q>(
-    picture_p: Rc<P>,
-    picture_q: Rc<Q>,
+    p: Rc<P>,
+    q: Rc<Q>,
     m: u8,
     n: u8,
 ) -> Rc<impl Fn(&Bx) -> Rendering>
@@ -62,11 +59,9 @@ where
     P: Fn(&Bx) -> Rendering,
     Q: Fn(&Bx) -> Rendering,
 {
-    let p = picture_p.clone();
-    let q = picture_q.clone();
     Rc::new(move |bx: &Bx| {
         let factor = m as f64 / ((m + n) as f64);
-        let (top, bottom) = split_box_horizontally(factor, &bx);
+        let (top, bottom) = split_box_horizontally(factor, bx);
         let mut result = vec![];
         result.extend(p(&top));
         result.extend(q(&bottom));
@@ -85,8 +80,8 @@ where
 
 /// Stack pictures beside each other according to weight
 pub fn beside_ratio<P, Q>(
-    picture_p: Rc<P>,
-    picture_q: Rc<Q>,
+    p: Rc<P>,
+    q: Rc<Q>,
     m: u8,
     n: u8,
 ) -> Rc<impl Fn(&Bx) -> Rendering>
@@ -94,11 +89,9 @@ where
     P: Fn(&Bx) -> Rendering,
     Q: Fn(&Bx) -> Rendering,
 {
-    let p = picture_p.clone();
-    let q = picture_q.clone();
     Rc::new(move |bx: &Bx| {
         let factor = m as f64 / ((m + n) as f64);
-        let (left, right) = split_box_vertically(factor, &bx);
+        let (left, right) = split_box_vertically(factor, bx);
         let mut result = vec![];
         result.extend(p(&left));
         result.extend(q(&right));
@@ -176,17 +169,15 @@ where
 }
 
 /// Place two pictures over each other
-pub fn over<P, Q>(picture_p: Rc<P>, picture_q: Rc<Q>) -> Rc<impl Fn(&Bx) -> Rendering>
+pub fn over<P, Q>(p: Rc<P>, q: Rc<Q>) -> Rc<impl Fn(&Bx) -> Rendering>
 where
     P: Fn(&Bx) -> Rendering,
     Q: Fn(&Bx) -> Rendering,
 {
-    let p = picture_p.clone();
-    let q = picture_q.clone();
     Rc::new(move |bx: &Bx| {
         let mut result = vec![];
-        result.extend(p(&bx));
-        result.extend(q(&bx));
+        result.extend(p(bx));
+        result.extend(q(bx));
         result
     })
 }
@@ -197,7 +188,7 @@ where
     P: Fn(&Bx) -> Rendering,
 {
     let big = p.clone();
-    let top = flip(toss(p.clone()));
+    let top = flip(toss(p));
     let right = turn(turn(turn(top.clone())));
     over(big, over(top, right))
 }
@@ -207,62 +198,59 @@ pub fn utile<P>(p: Rc<P>) -> Rc<impl Fn(&Bx) -> Rendering>
 where
     P: Fn(&Bx) -> Rendering,
 {
-    let top = flip(toss(p.clone()));
+    let top = flip(toss(p));
     let upper_left = over(top.clone(), turn(top));
     over(upper_left.clone(), turn(turn(upper_left)))
 }
 
 /// The side of the square limit
-pub fn side<P>(picture_p: Rc<P>, n: u8) -> Rc<impl Fn(&Bx) -> Rendering>
+pub fn side<P>(p: Rc<P>, n: u8) -> Rc<impl Fn(&Bx) -> Rendering>
 where
     P: Fn(&Bx) -> Rendering,
 {
-    let p = picture_p.clone();
     Rc::new(move |bx: &Bx| {
         if n == 0 {
             let q = blank();
-            q(&bx)
+            q(bx)
         } else {
             let recurse = side(p.clone(), n - 1);
             let se = ttile(p.clone());
             let sw = turn(se.clone());
             let q = quartet(recurse.clone(), recurse, sw, se);
-            q(&bx)
+            q(bx)
         }
     })
 }
 
 /// The corner of the square limit
-pub fn corner<P>(picture_p: Rc<P>, n: u8) -> Rc<impl Fn(&Bx) -> Rendering>
+pub fn corner<P>(p: Rc<P>, n: u8) -> Rc<impl Fn(&Bx) -> Rendering>
 where
     P: Fn(&Bx) -> Rendering,
 {
-    let p = picture_p.clone();
     Rc::new(move |bx: &Bx| {
         if n == 0 {
             let q = blank();
-            q(&bx)
+            q(bx)
         } else {
             let nw = corner(p.clone(), n - 1);
             let ne = side(p.clone(), n - 1);
             let sw = turn(ne.clone());
             let se = utile(p.clone());
             let q = quartet(nw, ne, sw, se);
-            q(&bx)
+            q(bx)
         }
     })
 }
 
 /// The ultimate goal: Escher's Square Limit
-pub fn square_limit<P>(picture_p: Rc<P>, n: u8) -> Rc<impl Fn(&Bx) -> Rendering>
+pub fn square_limit<P>(p: Rc<P>, n: u8) -> Rc<impl Fn(&Bx) -> Rendering>
 where
     P: Fn(&Bx) -> Rendering,
 {
-    let p = picture_p.clone();
     Rc::new(move |bx: &Bx| {
         if n == 0 {
             let q = blank();
-            q(&bx)
+            q(bx)
         } else {
             let mm = utile(p.clone());
 
@@ -277,7 +265,7 @@ where
             let ne = turn(se.clone());
 
             let q = nonet(nw, nm, ne, mw, mm, me, sw, sm, se);
-            q(&bx)
+            q(bx)
         }
     })
 }

@@ -12,19 +12,19 @@ use vector::Vector;
 /// `Vec<Shape>`.
 pub fn create_picture(shapes: Vec<Shape>) -> Rc<impl Fn(&Bx) -> Rendering> {
     Rc::new(move |bx: &Bx| {
-        let style = style_for(&bx);
-        let transformation = transformation_from_box(&bx);
+        let style = style_for(bx);
+        let transformation = transformation_from_box(bx);
         let result: Vec<(Shape, Style)> = shapes
             .iter()
-            .map(|shape| map_shape(&transformation, &shape))
-            .map(|shape| (shape, style.clone()))
+            .map(|shape| map_shape(&transformation, shape))
+            .map(|shape| (shape, style))
             .collect();
         result
     })
 }
 
 fn style_for(bx: &Bx) -> Style {
-    Style::new(stroke_width_for(&bx))
+    Style::new(stroke_width_for(bx))
 }
 
 fn stroke_width_for(bx: &Bx) -> f64 {
@@ -32,7 +32,7 @@ fn stroke_width_for(bx: &Bx) -> f64 {
 }
 
 fn transformation_from_box(cx: &Bx) -> impl Fn(&Vector<f64>) -> Vector<f64> {
-    let bx = cx.clone();
+    let bx = *cx;
     move |v: &Vector<f64>| bx.a.add(&bx.b.scale(&v.x).add(&bx.c.scale(&v.y)))
 }
 

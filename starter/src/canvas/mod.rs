@@ -27,26 +27,26 @@ pub fn identity(bx: &Box) -> Box {
 
 /// Rotate box through 90 degrees
 pub fn turn_box(bx: &Box) -> Box {
-    identity(&bx)
+    identity(bx)
 }
 
 /// Flip box vertically
 pub fn flip_box(bx: &Box) -> Box {
-    identity(&bx)
+    identity(bx)
 }
 
 /// Toss box
 pub fn toss_box(bx: &Box) -> Box {
-    identity(&bx)
+    identity(bx)
 }
 
 /// Create two boxes above each other that together make up the original box.
 pub fn split_box_horizontally(factor: f64, bx: &Box) -> (Box, Box) {
-    (identity(&bx), identity(&bx))
+    (identity(bx), identity(bx))
 }
 
 /// Create two boxes beside each other that together make up the original box.
 pub fn split_box_vertically(factor: f64, bx: &Box) -> (Box, Box) {
-    (identity(&bx), identity(&bx))
+    (identity(bx), identity(bx))
 }
 
