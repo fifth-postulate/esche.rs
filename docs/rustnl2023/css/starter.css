@@ -7,6 +7,10 @@ blockquote {
     padding-right: 2em;
 }
 
+pre {
+    text-align: left;
+}
+
 span.image {
     display: inline-block;
     width: max-content;

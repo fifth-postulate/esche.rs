@@ -61,4 +61,47 @@ class: middle, center
 ![Rust Logo With a Grid overlaid](image/grid-logo.png)
 ![Rust Logo transformed](image/grid-logo-combination.png)
 
+---
 
+![A box; the way we instruct a painter](image/box.png)
+
+--
+
+```rust
+/// A Box represents the area and position that we will draw in.
+#[derive(Debug, PartialEq, Clone, Copy)]
+pub struct Box {
+    /// Determines the origin of the drawing area, used to position the box.
+    pub a: Vector<f64>,
+    /// Determines the x axis of the box.
+    pub b: Vector<f64>,
+    /// Determines the y axis of the box.
+    pub c: Vector<f64>,
+}
+```
+
+---
+
+![A letter d; an asymmetric letter](image/d.png)
+
+---
+
+![A letter d turned](image/d_turned.png)
+
+---
+
+![A box; the way we instruct a painter](image/box.png)
+![A turned box](image/box_turned.png)
+
+--
+
+![vector addition](image/vector_sum.png)
+
+---
+
+![A letter d flipped](image/d_flipped.png)
+
+---
+
+![A box; the way we instruct a painter](image/box.png)
+![A turned box](image/box_flipped.png)
