@@ -1,9 +1,9 @@
 # Picture
-In the last chapter we looked at the interesting signature of the `turn`
+In the last chapter we looked at the interesting signature of the `flip`
 function. We will repeated it here.
 
 ```rust
-pub fn turn<Picture>(picture: Rc<Picture>) -> Rc<impl Fn(&Bx) -> Rendering>
+pub fn flip<Picture>(picture: Rc<Picture>) -> Rc<impl Fn(&Bx) -> Rendering>
 where Picture: Fn(&Bx) -> Rendering 
 ```
 

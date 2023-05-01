@@ -104,4 +104,26 @@ pub struct Box {
 ---
 
 ![A box; the way we instruct a painter](image/box.png)
-![A turned box](image/box_flipped.png)
+![A flipped box](image/box_flipped.png)
+
+---
+
+```rust
+pub fn flip<Picture>(picture: Rc<Picture>)
+    -> Rc<impl Fn(&Bx) -> Rendering>
+where Picture: Fn(&Bx) -> Rendering
+```
+
+--
+
+```rust
+pub type Rendering = Vec<(Shape, Style)>;
+```
+---
+
+![A letter d tossed](image/d_tossed.png)
+
+---
+
+![A box; the way we instruct a painter](image/box.png)
+![A flipped box](image/box_tossed.png)

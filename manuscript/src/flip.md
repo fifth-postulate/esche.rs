@@ -56,9 +56,8 @@ The line to look out for is the `let picture` line. Here we call the function
 `turn` function is reproduced here. It can be found in `src/picture/mod.rs`.
 
 ```rust
-pub fn turn<Picture>(picture: Rc<Picture>) -> Rc<impl Fn(&Bx) -> Rendering>
+pub fn turn<Picture>(p: Rc<Picture>) -> Rc<impl Fn(&Bx) -> Rendering>
 where Picture: Fn(&Bx) -> Rendering{
-    let p = picture.clone();
     Rc::new(move |bx: &Bx| {
         let turned_box = turn_box(&bx);
         p(&turned_box)
