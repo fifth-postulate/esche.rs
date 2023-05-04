@@ -127,3 +127,76 @@ pub type Rendering = Vec<(Shape, Style)>;
 
 ![A box; the way we instruct a painter](image/box.png)
 ![A flipped box](image/box_tossed.png)
+
+---
+
+![Letter d above letter b](image/d_above_b.png)
+
+---
+
+![A box; the way we instruct a painter](image/box.png)
+![A box above another box](image/box_above_box.png)
+
+---
+
+![Letter d besides letter b](image/d_beside_b.png)
+
+---
+
+![A box; the way we instruct a painter](image/box.png)
+![A box besides another box](image/box_beside_box.png)
+
+---
+
+![A quartet of letters](image/quartet_of_d.png)
+
+---
+
+![A nonet of letters](image/nonet_of_d.png)
+
+---
+
+![Letter d over letter d](image/d_over_b.png)
+
+---
+
+![A fish](image/fish.png)
+
+---
+
+![How to draw an owl](image/owl.jpg)
+
+---
+
+![T-tile](image/ttile.png)
+
+---
+
+![U-tile](image/utile.png)
+
+---
+
+![Side](image/order_3_side.png)
+
+---
+
+![Side with an grid overlaid](image/order_3_side_grid.png)
+
+---
+
+![Corner](image/order_3_corner.png)
+
+---
+
+![Corner with an grid overlaid](image/order_3_corner_grid.png)
+
+---
+
+![Square Limit](image/order_3_square_limit.png)
+
+---
+
+![Square Limit with an grid overlaid](image/order_3_square_limit_grid.png)
+
+
+
