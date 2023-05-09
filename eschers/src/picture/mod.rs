@@ -193,7 +193,7 @@ where
     over(big, over(top, right))
 }
 
-/// The T-tile
+/// The U-tile
 pub fn utile<P>(p: Rc<P>) -> Rc<impl Fn(&Bx) -> Rendering>
 where
     P: Fn(&Bx) -> Rendering,
